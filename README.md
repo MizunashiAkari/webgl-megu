@@ -11,13 +11,13 @@ This is just for fun and megu.\
 \
 Here is the structure.\
 \
-Common: some necessary file for webgl, nothing special.\
-\
-Megu: main folder.\
+Common: some necessary file for webgl, nothing special.
+
+Megu: main folder.
   - megumayuge.html: just for fun lol.
   - megu.html: the final product.
-\
-Lib: some functions.\
+
+Lib: some functions.
   - animate.js: produce animation.
   - draw.js: some function for making it easier.
   - shape.js: compute the points of some shapes.
