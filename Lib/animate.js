@@ -3,6 +3,12 @@ var timeMark = [];
 var actions = [];
 var antiActions = [];
 
+function clearAll() {
+	for(var i = 0; i < timeMark.length; ++i) {
+		clearTimeout(timeMark[i]);
+	}
+}
+
 function register(mark, tm, act, anti) {
 	actionMarks.push(mark);
 	timeMark.push(tm);
