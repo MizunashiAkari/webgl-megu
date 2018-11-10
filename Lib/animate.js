@@ -3,10 +3,15 @@ var timeMark = [];
 var actions = [];
 var antiActions = [];
 
-function clearAll() {
-	for(var i = 0; i < timeMark.length; ++i) {
-		clearTimeout(timeMark[i]);
-	}
+function clearAll(a = timeMark) {
+	if(a == timeMark)
+		for(var i = 0; i < a.length; ++i) {
+			clearTimeout(timeMark[i]);
+		}
+	else
+		for(var i = 0; i < a.length; ++i) {
+			clearTimeout(timeMark[a[i]]);
+		}
 }
 
 function register(mark, tm, act, anti) {

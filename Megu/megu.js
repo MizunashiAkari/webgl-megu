@@ -14,79 +14,6 @@ function getQueryString(name) {
 	if (r != null) return unescape(r[2]); return null;
 }
 
-function keyUp(e) { 
-	var currKey=0,e=e||event;
-	currKey=e.keyCode||e.which||e.charCode;
-	if(currKey == 37 || currKey == 39)
-		setTimeout("document.getElementById('blink').click()", 400);
-		return;
-}
-
-function keyDown(e) { 
-	var currKey=0,e=e||event;
-	currKey=e.keyCode||e.which||e.charCode;
-	var keyName = String.fromCharCode(currKey);
-	switch(keyName) {
-		case "1":
-			setTimeout("document.getElementById('blink').click()", 400);
-			break;
-		case "2":
-			setTimeout("document.getElementById('nico').click()", 400);
-			break;
-		case "3":
-			setTimeout("document.getElementById('kanashii').click()", 400);;
-			break;
-		case "4":
-			setTimeout("document.getElementById('oko').click()", 400);;
-			break;
-	}
-}
-document.onkeydown = keyDown;
-function keyDownn(e) { 
-	var currKey=0,e=e||event;
-	currKey=e.keyCode||e.which||e.charCode;
-	var keyName = String.fromCharCode(currKey);
-	switch(keyName) {
-		case "1":
-			setTimeout("document.getElementById('blink').click()", 400);
-			break;
-		case "2":
-			setTimeout("document.getElementById('nico').click()", 400);
-			break;
-		case "3":
-			setTimeout("document.getElementById('kanashii').click()", 400);;
-			break;
-		case "4":
-			setTimeout("document.getElementById('oko').click()", 400);;
-			break;
-		case "9":
-			setTimeout("document.getElementById('doya').click()", 400);;
-			break;
-		case "5":
-			setTimeout("document.getElementById('crookl').click()", 400);;
-			break;
-		case "6":
-			setTimeout("document.getElementById('kiral').click()", 400);;
-			break;
-		case "7":
-			setTimeout("document.getElementById('crookr').click()", 400);;
-			break;
-		case "8":
-			setTimeout("document.getElementById('kirar').click()", 400);;
-			break;
-		default:
-			switch(currKey) {
-				case 37:
-					setTimeout("document.getElementById('kirar').click()", 400);;
-					break;
-				case 39:
-					setTimeout("document.getElementById('kiral').click()", 400);;
-					break;
-				default:
-					break;
-			}
-	}
-}
 
 //Defination of color
 var black = getColors(0, 0, 0, 1, 1024);
@@ -318,17 +245,17 @@ window.onload = function init()
 	flowerColor = colorBuff(gl, flowerColor);
 	flowerCoreColor = colorBuff(gl, flowerCoreColor);
 	
-	var eyeulc = move(rotate(zoom(meyeul, 1, -0.4, 0, 0, true, 1), 5), -0.16, 0.085);
-	var eyeurc = move(rotate(zoom(meyeur, 1, -0.4, 0, 0, true, 1), -8), 0.15, 0.085)
-	var eyedlc = move(rotate(zoom(meyedl, 1, 0, 0, 0, true, 1), 5), -0.16, 0.085)
-	var eyedrc = move(rotate(zoom(meyedr, 1, 0, 0, 0, true, 1), -8), 0.15, 0.085)
-	var matugelc = move(rotate(zoom(zoom(matugelm, 1, -0.4, 0, -0.02, true, 1, 0, 4), 1, -0.4, 0, 0, false, 0, 0, 4), 5), -0.16, 0.085)
-	var matugerc = move(rotate(zoom(zoom(matugerm, 1, -0.4, 0, -0.02, true, 1, 0, 4), 1, -0.4, 0, 0, false, 0, 0, 4), -8), 0.15, 0.085)
+	var eyeulc = move(rotate(zoom(meyeul, 1, -0.3, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyeurc = move(rotate(zoom(meyeur, 1, -0.3, 0, 0, true, 1), -8), 0.15, 0.085)
+	var eyedlc = move(rotate(zoom(meyedl, 1, -0.1, 0, 0, true, 1), 5), -0.16, 0.085)
+	var eyedrc = move(rotate(zoom(meyedr, 1, -0.1, 0, 0, true, 1), -8), 0.15, 0.085)
+	var matugelc = move(rotate(zoom(zoom(matugelm, 0.9, -0.3, 0, -0.02, true, 1, 0, 4), 0.9, -0.3, 0, 0, false, 0, 0, 4), 5), -0.16, 0.085)
+	var matugerc = move(rotate(zoom(zoom(matugerm, 0.9, -0.3, 0, -0.02, true, 1, 0, 4), 0.9, -0.3, 0, 0, false, 0, 0, 4), -8), 0.15, 0.085)
         
-	var eyelashlc = rotate(zoom(rotate(eyelashl, -5, -0.16, 0.095, true), 1, -0.3, -0.16, 0.095), 5, -0.16, 0.095)
-	var eyelashslc = rotate(zoom(zoom(rotate(eyelashsl, -5, -0.16, 0.085, true), 1, -0.4, -0.16, 0.085, false, 0, 0, 4), 1, -0.8, -0.16, 0.085, false, 1, 0, 4), 5, -0.16, 0.085)
-	var eyelashrc = rotate(zoom(rotate(eyelashr, 8, 0.15, 0.095, true), 1, -0.3, 0.15, 0.095), -8, 0.15, 0.095)
-	var eyelashsrc = rotate(zoom(zoom(rotate(eyelashsr, 8, 0.15, 0.085, true), 1, -0.4, 0.15, 0.085, false, 0, 0, 4), 1, -0.8, 0.15, 0.085, false, 1, 0, 4), -8, 0.15, 0.085)
+	var eyelashlc = rotate(zoom(rotate(eyelashl, -5, -0.16, 0.095, true), 0.8, -0.2, -0.16, 0.095), 5, -0.16, 0.095)
+	var eyelashslc = rotate(zoom(zoom(rotate(eyelashsl, -5, -0.16, 0.085, true), 0.8, -0.3, -0.16, 0.085, false, 0, 0, 4), 0.8, -0.6, -0.16, 0.085, false, 1, 0, 4), 5, -0.16, 0.085)
+	var eyelashrc = rotate(zoom(rotate(eyelashr, 8, 0.15, 0.095, true), 0.8, -0.2, 0.15, 0.095), -8, 0.15, 0.095)
+	var eyelashsrc = rotate(zoom(zoom(rotate(eyelashsr, 8, 0.15, 0.085, true), 0.8, -0.3, 0.15, 0.085, false, 0, 0, 4), 0.8, -0.6, 0.15, 0.085, false, 1, 0, 4), -8, 0.15, 0.085)
 	
 	eyeulb = linearAnimeBuff(gl, eyeul, eyeulc, 10);
 	eyeurb = linearAnimeBuff(gl, eyeur, eyeurc, 10);
@@ -941,7 +868,7 @@ var nb = false;
 var nn = register(false, 0, nico, antinico);
 function nico() {
 	if(!nb) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		eyeul = eyeuln[ni];
 		eyeur = eyeurn[ni];
 		eyedl = eyedln[ni];
@@ -1063,7 +990,7 @@ var lcn = register(false, 0, crookl, anticrookl);
 
 function crookl() {
 	if(!lcb) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		maeHairC = maeHairClc[lci];
 		faceLineDR = faceLineDRlc[lci];
 		faceLineDL = faceLineDLlc[lci];
@@ -1285,7 +1212,7 @@ var lckn = register(false, 0, croolkiral, antikiral);
 
 function croolkiral() {
 	if(!lckb) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		maeHairC = maeHairClc[lcki];
 		faceLineDR = faceLineDRlc[lcki];
 		faceLineDL = faceLineDLlc[lcki];
@@ -1519,7 +1446,7 @@ var rcn = register(false, 0, crookr, anticrookr);
 
 function crookr() {
 	if(!rcb) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		maeHairC = maeHairCrc[rci];
 		faceLineDR = faceLineDRrc[rci];
 		faceLineDL = faceLineDLrc[rci];
@@ -1741,7 +1668,7 @@ var rckn = register(false, 0, croolkirar, antikirar);
 
 function croolkirar() {
 	if(!rckb) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		maeHairC = maeHairCrc[rcki];
 		faceLineDR = faceLineDRrc[rcki];
 		faceLineDL = faceLineDLrc[rcki];
@@ -1921,7 +1848,7 @@ var on = register(false, 0, oko, antioko);
 
 function oko() {
 	if(!ob) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		eyeul = eyeulo[oi];
 		eyeur = eyeuro[oi];
 		eyedl = eyedlo[oi];
@@ -2042,7 +1969,7 @@ var ksn = register(false, 0, kanashii, antikanashii);
 
 function kanashii() {
 	if(!ksb) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		eyeul = eyeulks[ksi];
 		eyeur = eyeurks[ksi];
 		eyedl = eyedlks[ksi];
@@ -2169,7 +2096,7 @@ var dyn;
 
 function doya() {
 	if(!dyb) {
-		clearAll()
+		clearAll([bn, nn, ksn, on])
 		eyeul = eyeuldy[dyi];
 		eyeur = eyeurdy[dyi];
 		eyedl = eyedldy[dyi];
@@ -2280,6 +2207,79 @@ function antidoya(callback) {
 	drawAll();
 	timeMark[dyn] = setTimeout("antidoya(" + callback + ")", 1000/60);
 	return false;
+}
+function keyUp(e) { 
+	var currKey=0,e=e||event;
+	currKey=e.keyCode||e.which||e.charCode;
+	if(currKey == 37 || currKey == 39)
+		setTimeout("document.getElementById('blink').click()", 400);
+		return;
+}
+
+function keyDown(e) { 
+	var currKey=0,e=e||event;
+	currKey=e.keyCode||e.which||e.charCode;
+	var keyName = String.fromCharCode(currKey);
+	switch(keyName) {
+		case "1":
+			setTimeout("document.getElementById('blink').click()", 400);
+			break;
+		case "2":
+			setTimeout("document.getElementById('nico').click()", 400);
+			break;
+		case "3":
+			setTimeout("document.getElementById('kanashii').click()", 400);;
+			break;
+		case "4":
+			setTimeout("document.getElementById('oko').click()", 400);;
+			break;
+	}
+}
+document.onkeydown = keyDown;
+function keyDownn(e) { 
+	var currKey=0,e=e||event;
+	currKey=e.keyCode||e.which||e.charCode;
+	var keyName = String.fromCharCode(currKey);
+	switch(keyName) {
+		case "1":
+			setTimeout("document.getElementById('blink').click()", 400);
+			break;
+		case "2":
+			setTimeout("document.getElementById('nico').click()", 400);
+			break;
+		case "3":
+			setTimeout("document.getElementById('kanashii').click()", 400);;
+			break;
+		case "4":
+			setTimeout("document.getElementById('oko').click()", 400);;
+			break;
+		case "9":
+			setTimeout("document.getElementById('doya').click()", 400);;
+			break;
+		case "5":
+			setTimeout("document.getElementById('crookl').click()", 400);;
+			break;
+		case "6":
+			setTimeout("document.getElementById('kiral').click()", 400);;
+			break;
+		case "7":
+			setTimeout("document.getElementById('crookr').click()", 400);;
+			break;
+		case "8":
+			setTimeout("document.getElementById('kirar').click()", 400);;
+			break;
+		default:
+			switch(currKey) {
+				case 37:
+					setTimeout("document.getElementById('kirar').click()", 100);;
+					break;
+				case 39:
+					setTimeout("document.getElementById('kiral').click()", 100);;
+					break;
+				default:
+					break;
+			}
+	}
 }
 
 function drawAll() {
