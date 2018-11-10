@@ -8,6 +8,12 @@ function addAction(name, show = name) {
 	act.innerHTML += "<input type='radio' value='" + name + "' name='action' id='" + name + "'/><div onclick=document.getElementById('" + name + "').click()><label for='" + name + "'>" + show + "</label></div><br />";
 }
 
+function getQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]); return null;
+}
+
 //Defination of color
 var black = getColors(0, 0, 0, 1, 1024);
 var white = getColors(1, 1, 1, 1, 1024);
@@ -288,8 +294,8 @@ window.onload = function init()
 		
 	var eyeulos = move(rotate(zoom(meyeul, 1, 0.75, 0, 0, true, 1), 5), -0.16, 0.085);
 	var eyeuros = move(rotate(zoom(meyeur, 1, 0.75, 0, 0, true, 1), -8), 0.15, 0.085);
-	var eyedlos = move(rotate(zoom(meyedl, 1, 0.85, 0, 0, true, 1), 5), -0.16, 0.085);
-	var eyedros = move(rotate(zoom(meyedr, 1, 0.85, 0, 0, true, 1), -8), 0.15, 0.085);
+	var eyedlos = move(rotate(zoom(meyedl, 21/22, 0.85, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyedros = move(rotate(zoom(meyedr, 21/22, 0.85, 0, 0, true, 1), -8), 0.15, 0.085);
 	var matugelos = move(rotate(zoom(zoom(matugelm, 1, 0.85, 0, -0.02, true, 1, 0, 4), 1, 0.85, 0, 0, false, 0, 0, 4), 5), -0.16, 0.085);
 	var matugeros = move(rotate(zoom(zoom(matugerm, 1, 0.85, 0, -0.02, true, 1, 0, 4), 1, 0.85, 0, 0, false, 0, 0, 4), -8), 0.15, 0.085);
 	
@@ -329,8 +335,8 @@ window.onload = function init()
 	
 	var eyeulkss= move(rotate(zoom(meyeul, 1, 0.6, 0, 0, true, 1), 5), -0.16, 0.085);
 	var eyeurkss= move(rotate(zoom(meyeur, 1, 0.6, 0, 0, true, 1), -8), 0.15, 0.085);
-	var eyedlkss= move(rotate(zoom(meyedl, 1, 0.8, 0, 0, true, 1), 5), -0.16, 0.085);
-	var eyedrkss= move(rotate(zoom(meyedr, 1, 0.8, 0, 0, true, 1), -8), 0.15, 0.085);
+	var eyedlkss= move(rotate(zoom(meyedl, 21/22, 0.9, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyedrkss= move(rotate(zoom(meyedr, 21/22, 0.9, 0, 0, true, 1), -8), 0.15, 0.085);
 	var matugelkss= move(rotate(zoom(zoom(matugelm, 1, 0.7, 0, -0.02, true, 1, 0, 4), 1, 0.7, 0, 0, false, 0, 0, 4), 5), -0.16, 0.085);
 	var matugerkss= move(rotate(zoom(zoom(matugerm, 1, 0.7, 0, -0.02, true, 1, 0, 4), 1, 0.7, 0, 0, false, 0, 0, 4), -8), 0.15, 0.085);
 	
@@ -675,15 +681,27 @@ window.onload = function init()
 
 	mouth = positionBuff(gl, mouth);
 	
-	addAction("blink", "普通");
-	addAction("nico", "ニコ");
-	addAction("kanashii", "悲しい");
-	addAction("oko", "怒る");
-	addAction("crookl", "ウインク（右）");
-	addAction("kiral", "ウインク（右）");
-	addAction("crookr", "ウインク（左）");
-	addAction("kirar", "ウインク（左）");
+	var l = getQueryString("l");
 	
+	if(l == "cn") {
+		addAction("blink", "正常");
+		addAction("nico", "微笑");
+		addAction("kanashii", "伤心");
+		addAction("oko", "生气");
+		addAction("crookl", "wink（右）");
+		addAction("kiral", "wink（右）");
+		addAction("crookr", "wink（左）");
+		addAction("kirar", "wink（左）");
+	} else if(l == "jp" || l == null) {
+		addAction("blink", "普通");
+		addAction("nico", "ニコ");
+		addAction("kanashii", "悲しい");
+		addAction("oko", "怒る");
+		addAction("crookl", "ウインク（右）");
+		addAction("kiral", "ウインク（右）");
+		addAction("crookr", "ウインク（左）");
+		addAction("kirar", "ウインク（左）");
+	}
 	document.getElementById("blink").setAttribute("checked", "checked");
 
 	document.getElementById("blink").onclick=function(){action(bn)};
