@@ -13,12 +13,12 @@ var black = getColors(0, 0, 0, 1, 1024);
 var white = getColors(1, 1, 1, 1, 1024);
 var line = getColors(203/255, 167/255, 133/255, 1, 1024);
 
-var hairColor = getColors(253/255, 230/255, 154/255, 1, 123);
-var faceColor = getColors(251/255, 239/255, 217/255, 1, 122);
-var backColor = getColors(1, 184/255, 102/255, 1, 122);
+var hairColor = getColors(253/255, 230/255, 149/255, 1, 123);
+var faceColor = getColors(255/255, 239/255, 217/255, 1, 122);
+var backColor = getColors(1, 189/255, 112/255, 1, 122);
 var clothesBColor = getColors(0.6, 0.6, 0.8, 1, 122);
 
-var mimiColor = getColors(230/255, 120/255, 120/255, 1, 122);
+var mimiColor = getColors(250/255, 120/255, 120/255, 1, 122);
 
 var faceDColor = getColors(251/255, 229/255, 205/255, 1, 62);
 var faceUColor = getColors(251/255, 217/255, 200/255, 1, 62);
@@ -151,7 +151,7 @@ for(var i = 0; i < meyeur.length; i += 2) {
 		meyeur[i]/=1.5;
 }
 var eyeur = copy(meyeur);
-var meyedl = oval(0, 0, 0.105, 0.095, 180, 360, false, [-0.02, -0.20]);
+var meyedl = oval(0, 0, 0.11, 0.095, 180, 360, false, [-0.02, -0.20]);
 for(var i = 0; i < meyeul.length; i += 2) {
 	if(meyedl[i]>0)
 		meyedl[i]/=1.5;
@@ -160,7 +160,7 @@ for(var i = 0; i < meyeul.length; i += 2) {
 }
 var eyedl = copy(meyedl);
 //eyeul = zoom(eyeul, 1, 0.8, 0, 0, false, 1);
-var meyedr = oval(0, 0, 0.105, 0.095, 180, 360, false, [0.02, -0.20]);
+var meyedr = oval(0, 0, 0.11, 0.095, 180, 360, false, [0.02, -0.20]);
 for(var i = 0; i < meyeur.length; i += 2) {
 	if(meyedr[i]<0)
 		meyedr[i]/=1.5;
@@ -262,16 +262,16 @@ window.onload = function init()
 	eyelashrb = linearAnimeBuff(gl, eyelashr, eyelashrc, 10);
 	eyelashsrb = linearAnimeBuff(gl, eyelashsr, eyelashsrc, 10);
 	
-	var eyeulns = move(rotate(zoom(meyeul, 1, 0.1, 0, 0, true, 1), 5), -0.16, 0.085);
-	var eyeurns = move(rotate(zoom(meyeur, 1, 0.1, 0, 0, true, 1), -8), 0.15, 0.085);
-	var eyedlns = move(rotate(zoom(meyedl, 1, -0.3, 0, 0, true, 1), 5), -0.16, 0.085);
-	var eyedrns = move(rotate(zoom(meyedr, 1, -0.3, 0, 0, true, 1), -8), 0.15, 0.085);
+	var eyeulns = move(rotate(zoom(meyeul, 1, -0.1, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyeurns = move(rotate(zoom(meyeur, 1, -0.1, 0, 0, true, 1), -8), 0.15, 0.085);
+	var eyedlns = move(rotate(zoom(meyedl, 1, -0.2, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyedrns = move(rotate(zoom(meyedr, 1, -0.2, 0, 0, true, 1), -8), 0.15, 0.085);
 	var matugelns = move(rotate(rotate(zoom(zoom(matugelm, 0.95, 0.40, 0, -0.002, true, 1, 0, 4), 0.9, 0.6, 0, 0, false, 0, 0, 4), 5), -8, -0.105, 0), -0.16, 0.06);
 	var matugerns = move(rotate(rotate(zoom(zoom(matugerm, 0.95, 0.40, 0, -0.002, true, 1, 0, 4), 0.9, 0.6, 0, 0, false, 0, 0, 4), -8), 10, 0.105, 0), 0.15, 0.065);
 
 	var eyelashlns = rotate(rotate(zoom(rotate(eyelashl, -5, -0.16, 0.095, true), 0.9, 0.4, -0.16, 0.095), 5, -0.16, 0.095), -10, -0.265, 0.06);
 	var eyelashslns = rotate(rotate(zoom(zoom(rotate(eyelashsl, -5, -0.16, 0.085, true), 0.9, 0.32, -0.16, 0.085, false, 0, 0, 4), 0.9, 0.45, -0.16, 0.085, false, 1, 0, 4), 5, -0.16, 0.085), -16, -0.265, -0.02);
-	var eyelashrns = rotate(rotate(zoom(rotate(eyelashr, 8, 0.15, 0.095, true), 0.9, 0.4, 0.15, 0.095), -8, 0.15, 0.095), 12, 0.255, 0.06);
+	var eyelashrns = rotate(rotate(zoom(rotate(eyelashr, 8, 0.15, 0.1, true), 0.9, 0.4, 0.15, 0.1), -8, 0.15, 0.1), 12, 0.255, 0.065);
 	var eyelashsrns = rotate(rotate(zoom(zoom(rotate(eyelashsr, 8, 0.15, 0.085, true), 0.9, 0.32, 0.15, 0.085, false, 0, 0, 4), 0.9, 0.45, 0.15, 0.085, false, 1, 0, 4), -8, 0.15, 0.085), 15, 0.26, 0.02);
 	
 	eyeuln = linearAnimeBuff(gl, eyeul, eyeulns, 6);
