@@ -15,7 +15,8 @@ Common: some necessary file for webgl, nothing special.
 
 Megu: main folder.
   - megumayuge.html: just for fun lol.
-  - megu.html: the final product.
+  - index.html: the final product.
+  -action.js: link to html.
 
 Lib: some functions.
   - animate.js: produce animation.
