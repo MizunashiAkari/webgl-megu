@@ -14,6 +14,80 @@ function getQueryString(name) {
 	if (r != null) return unescape(r[2]); return null;
 }
 
+function keyUp(e) { 
+	var currKey=0,e=e||event;
+	currKey=e.keyCode||e.which||e.charCode;
+	if(currKey == 37 || currKey == 39)
+		setTimeout("document.getElementById('blink').click()", 400);
+		return;
+}
+
+function keyDown(e) { 
+	var currKey=0,e=e||event;
+	currKey=e.keyCode||e.which||e.charCode;
+	var keyName = String.fromCharCode(currKey);
+	switch(keyName) {
+		case "1":
+			setTimeout("document.getElementById('blink').click()", 400);
+			break;
+		case "2":
+			setTimeout("document.getElementById('nico').click()", 400);
+			break;
+		case "3":
+			setTimeout("document.getElementById('kanashii').click()", 400);;
+			break;
+		case "4":
+			setTimeout("document.getElementById('oko').click()", 400);;
+			break;
+	}
+}
+document.onkeydown = keyDown;
+function keyDownn(e) { 
+	var currKey=0,e=e||event;
+	currKey=e.keyCode||e.which||e.charCode;
+	var keyName = String.fromCharCode(currKey);
+	switch(keyName) {
+		case "1":
+			setTimeout("document.getElementById('blink').click()", 400);
+			break;
+		case "2":
+			setTimeout("document.getElementById('nico').click()", 400);
+			break;
+		case "3":
+			setTimeout("document.getElementById('kanashii').click()", 400);;
+			break;
+		case "4":
+			setTimeout("document.getElementById('oko').click()", 400);;
+			break;
+		case "9":
+			setTimeout("document.getElementById('doya').click()", 400);;
+			break;
+		case "5":
+			setTimeout("document.getElementById('crookl').click()", 400);;
+			break;
+		case "6":
+			setTimeout("document.getElementById('kiral').click()", 400);;
+			break;
+		case "7":
+			setTimeout("document.getElementById('crookr').click()", 400);;
+			break;
+		case "8":
+			setTimeout("document.getElementById('kirar').click()", 400);;
+			break;
+		default:
+			switch(currKey) {
+				case 37:
+					setTimeout("document.getElementById('kirar').click()", 400);;
+					break;
+				case 39:
+					setTimeout("document.getElementById('kiral').click()", 400);;
+					break;
+				default:
+					break;
+			}
+	}
+}
+
 //Defination of color
 var black = getColors(0, 0, 0, 1, 1024);
 var white = getColors(1, 1, 1, 1, 1024);
@@ -374,6 +448,53 @@ window.onload = function init()
 	
 	mouthks = linearAnimeBuff(gl, mouth, zoom(mouth, 0.8, -0.2, 0, -0.195, true), 12);
 	
+	var eyeuldys = move(rotate(zoom(meyeul, 1, 0.9, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyeurdys = move(rotate(zoom(meyeur, 1, 0.9, 0, 0, true, 1), -8), 0.15, 0.085);
+	var eyedldys = move(rotate(zoom(meyedl, 21/22, 0.78, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyedrdys = move(rotate(zoom(meyedr, 21/22, 0.78, 0, 0, true, 1), -8), 0.15, 0.085);
+	var matugeldys = move(rotate(zoom(zoom(matugelm, 1, 0.9, 0, -0.02, true, 1, 0, 4), 1, 0.9, 0, 0, false, 0, 0, 4), 5), -0.16, 0.085);
+	var matugerdys = move(rotate(zoom(zoom(matugerm, 1, 0.9, 0, -0.02, true, 1, 0, 4), 1, 0.9, 0, 0, false, 0, 0, 4), -8), 0.15, 0.085);
+	
+	var eyelashldys = rotate(zoom(rotate(eyelashl, -5, -0.16, 0.095, true), 1, 0.9, -0.16, 0.095), 5, -0.16, 0.095);
+	var eyelashsldys = rotate(zoom(zoom(rotate(eyelashsl, -5, -0.16, 0.085, true), 1, 0.9, -0.16, 0.085, false, 0, 0, 4), 1, 0.9, -0.16, 0.085, false, 1, 0, 4), 5, -0.16, 0.085);
+	var eyelashrdys = rotate(zoom(rotate(eyelashr, 8, 0.15, 0.095, true), 1, 0.9, 0.15, 0.095), -8, 0.15, 0.095);
+	var eyelashsrdys = rotate(zoom(zoom(rotate(eyelashsr, 8, 0.15, 0.085, true), 1, 0.9, 0.15, 0.085, false, 0, 0, 4), 1, 0.9, 0.15, 0.085, false, 1, 0, 4), -8, 0.15, 0.085);
+	
+	eyeuldy = linearAnimeBuff(gl, eyeul, eyeuldys, 12);
+	eyeurdy = linearAnimeBuff(gl, eyeur, eyeurdys, 12);
+	eyedldy = linearAnimeBuff(gl, eyedl, eyedldys, 12);
+	eyedrdy = linearAnimeBuff(gl, eyedr, eyedrdys, 12);
+	matugeldy = linearAnimeBuff(gl, matugel, matugeldys, 12);
+	matugerdy = linearAnimeBuff(gl, matuger, matugerdys, 12);
+
+	eyelashldy = linearAnimeBuff(gl, eyelashl, eyelashldys, 12);
+	eyelashsldy = linearAnimeBuff(gl, eyelashsl, eyelashsldys, 12);
+	eyelashrdy = linearAnimeBuff(gl, eyelashr, eyelashrdys, 12);
+	eyelashsrdy = linearAnimeBuff(gl, eyelashsr, eyelashsrdys, 12);
+	
+	eyeballldy = linearAnimeBuff(gl, eyeballl, move(eyeballl, 0, 0.014, true), 12);
+	eyeballrdy = linearAnimeBuff(gl, eyeballr, move(eyeballr, 0, 0.014, true), 12);
+	pupilldy = linearAnimeBuff(gl, pupill, move(pupill, 0, 0.014, true), 12);
+	pupilrdy = linearAnimeBuff(gl, pupilr, move(pupilr, 0, 0.014, true), 12);
+	kiraldy = linearAnimeBuff(gl, kiral, move(kiral, 0, 0.014, true), 12);
+	kirardy = linearAnimeBuff(gl, kirar, move(kirar, 0, 0.014, true), 12);
+	
+	eyeuldyb = linearAnimeBuff(gl, eyeuldys, eyeulc, 10);
+	eyeurdyb = linearAnimeBuff(gl, eyeurdys, eyeurc, 10);
+	eyedldyb = linearAnimeBuff(gl, eyedldys, eyedlc, 10);
+	eyedrdyb = linearAnimeBuff(gl, eyedrdys, eyedrc, 10);
+	matugeldyb = linearAnimeBuff(gl, matugeldys, matugelc, 10);
+	matugerdyb = linearAnimeBuff(gl, matugerdys, matugerc, 10);
+
+	eyelashldyb = linearAnimeBuff(gl, eyelashldys, eyelashlc, 10);
+	eyelashsldyb = linearAnimeBuff(gl, eyelashsldys, eyelashslc, 10);
+	eyelashrdyb = linearAnimeBuff(gl, eyelashrdys, eyelashrc, 10);
+	eyelashsrdyb = linearAnimeBuff(gl, eyelashsrdys, eyelashsrc, 10);
+	
+	mayugeldy = linearAnimeBuff(gl, mayugeL, rotate(oval(-0.16, 0.21, 0.1, 0.11, 30, 150, false, [-0.16, 0.26]),10, -0.17, 0.275), 12);
+	mayugerdy = linearAnimeBuff(gl, mayugeR, rotate(oval(0.13, 0.22, 0.1, 0.11, 30, 150, false, [0.13, 0.27]), -10, 0.14, 0.285), 12);
+	
+	mouthdy = linearAnimeBuff(gl, mouth, zoom(mouth, 1.2, 2.5, 0, -0.195, true), 12);
 	
 	var eyeullcs = rotate(eyeul, -13, -0.1, -0.4, true);
 	var eyeurlcs = rotate(eyeur, -13, -0.1, -0.4, true);
@@ -702,6 +823,18 @@ window.onload = function init()
 		addAction("crookr", "ウインク（左）");
 		addAction("kirar", "ウインク（左）");
 	}
+	var c = getQueryString("c");
+	if(c == "ldftinud") {
+		dyn = register(false, 0, doya, antidoya);
+		if(l == "cn") {
+			addAction("doya", "得意脸");
+		} else if(l == "jp" || l == null) {
+			addAction("doya", "ドヤ顔");
+		}
+		document.getElementById("doya").onclick=function(){action(dyn)};
+		document.onkeyup = keyUp;
+		document.onkeydown = keyDownn;
+	}
 	document.getElementById("blink").setAttribute("checked", "checked");
 
 	document.getElementById("blink").onclick=function(){action(bn)};
@@ -808,6 +941,7 @@ var nb = false;
 var nn = register(false, 0, nico, antinico);
 function nico() {
 	if(!nb) {
+		clearAll()
 		eyeul = eyeuln[ni];
 		eyeur = eyeurn[ni];
 		eyedl = eyedln[ni];
@@ -929,6 +1063,7 @@ var lcn = register(false, 0, crookl, anticrookl);
 
 function crookl() {
 	if(!lcb) {
+		clearAll()
 		maeHairC = maeHairClc[lci];
 		faceLineDR = faceLineDRlc[lci];
 		faceLineDL = faceLineDLlc[lci];
@@ -1150,6 +1285,7 @@ var lckn = register(false, 0, croolkiral, antikiral);
 
 function croolkiral() {
 	if(!lckb) {
+		clearAll()
 		maeHairC = maeHairClc[lcki];
 		faceLineDR = faceLineDRlc[lcki];
 		faceLineDL = faceLineDLlc[lcki];
@@ -1383,6 +1519,7 @@ var rcn = register(false, 0, crookr, anticrookr);
 
 function crookr() {
 	if(!rcb) {
+		clearAll()
 		maeHairC = maeHairCrc[rci];
 		faceLineDR = faceLineDRrc[rci];
 		faceLineDL = faceLineDLrc[rci];
@@ -1604,6 +1741,7 @@ var rckn = register(false, 0, croolkirar, antikirar);
 
 function croolkirar() {
 	if(!rckb) {
+		clearAll()
 		maeHairC = maeHairCrc[rcki];
 		faceLineDR = faceLineDRrc[rcki];
 		faceLineDL = faceLineDLrc[rcki];
@@ -1783,6 +1921,7 @@ var on = register(false, 0, oko, antioko);
 
 function oko() {
 	if(!ob) {
+		clearAll()
 		eyeul = eyeulo[oi];
 		eyeur = eyeuro[oi];
 		eyedl = eyedlo[oi];
@@ -1903,6 +2042,7 @@ var ksn = register(false, 0, kanashii, antikanashii);
 
 function kanashii() {
 	if(!ksb) {
+		clearAll()
 		eyeul = eyeulks[ksi];
 		eyeur = eyeurks[ksi];
 		eyedl = eyedlks[ksi];
@@ -2000,6 +2140,145 @@ function antikanashii(callback) {
 	}
 	drawAll();
 	timeMark[ksn] = setTimeout("antikanashii(" + callback + ")", 1000/60);
+	return false;
+}
+
+var eyeuldy;
+var eyeurdy;
+var eyedldy;
+var eyedrdy;
+var matugeldy;
+var matugerdy;
+var eyelashldy;
+var eyelashsldy;
+var eyelashrdy;
+var eyelashsrdy;
+var mayugeldy;
+var mayugerdy;
+var mouthdy;
+var eyeballldy;
+var eyeballrdy;
+var pupilldy;
+var pupilrdy;
+var kiraldy;
+var kirardy;
+
+var dyi = 0;
+var dyb = false;
+var dyn;
+
+function doya() {
+	if(!dyb) {
+		clearAll()
+		eyeul = eyeuldy[dyi];
+		eyeur = eyeurdy[dyi];
+		eyedl = eyedldy[dyi];
+		eyedr = eyedrdy[dyi];
+		matugel = matugeldy[dyi];
+		matuger = matugerdy[dyi];
+		eyelashl = eyelashldy[dyi];
+		eyelashsl = eyelashsldy[dyi];
+		eyelashr = eyelashrdy[dyi];
+		eyelashsr = eyelashsrdy[dyi];
+		mayugeL = mayugeldy[dyi];
+		mayugeR = mayugerdy[dyi];
+		mouth = mouthdy[dyi];
+		eyeballl = eyeballldy[dyi];
+		eyeballr = eyeballrdy[dyi];
+		pupill = pupilldy[dyi];
+		pupilr = pupilrdy[dyi];
+		kiral = kiraldy[dyi];
+		kirar = kirardy[dyi];
+		if(++dyi == mayugelo.length)
+		{
+			dyb = actionMarks[dyn] = true;
+			dyi -= 1;
+			timeMark[dyn] = setTimeout("doyablink()", Math.random() * 3000  + 200);
+			drawAll();
+			return;
+		}
+		timeMark[dyn] = setTimeout("doya()", 1000/60);
+		drawAll();
+	}
+}
+
+var eyeuldyb;
+var eyeurdyb;
+var eyedldyb;
+var eyedrdyb;
+var matugeldyb;
+var matugerdyb;
+var eyelashldyb;
+var eyelashsldyb;
+var eyelashrdyb;
+var eyelashsrdyb;
+
+var dybi = 0;
+var dybb = false;
+
+function doyablink() {
+	eyeul = eyeuldyb[dybi];
+	eyeur = eyeurdyb[dybi];
+	eyedl = eyedldyb[dybi];
+	eyedr = eyedrdyb[dybi];
+	matugel = matugeldyb[dybi];
+	matuger = matugerdyb[dybi];
+	eyelashl = eyelashldyb[dybi];
+	eyelashsl = eyelashsldyb[dybi];
+	eyelashr = eyelashrdyb[dybi];
+	eyelashsr = eyelashsrdyb[dybi];
+	if(!dybb) {
+		if(++dybi == matugeldyb.length)
+		{
+			dybb = true;
+			dybi-=2;
+		}
+	}
+	else {
+		if(--dybi == -1)
+		{
+			dybb = false;
+			dybi=0;
+			timeMark[dyn] = setTimeout("doyablink()", Math.random() * 3000  + 200);
+			drawAll();
+			return;
+		}
+	}
+	timeMark[dyn] = setTimeout("doyablink()", 1000/60);
+	drawAll();
+}
+
+function antidoya(callback) {
+	dyb = false;
+	eyeul = eyeuldy[dyi];
+	eyeur = eyeurdy[dyi];
+	eyedl = eyedldy[dyi];
+	eyedr = eyedrdy[dyi];
+	matugel = matugeldy[dyi];
+	matuger = matugerdy[dyi];
+	eyelashl = eyelashldy[dyi];
+	eyelashsl = eyelashsldy[dyi];
+	eyelashr = eyelashrdy[dyi];
+	eyelashsr = eyelashsrdy[dyi];
+	mayugeL = mayugeldy[dyi];
+	mayugeR = mayugerdy[dyi];
+	mouth = mouthdy[dyi];
+	eyeballl = eyeballldy[dyi];
+	eyeballr = eyeballrdy[dyi];
+	pupill = pupilldy[dyi];
+	pupilr = pupilrdy[dyi];
+	kiral = kiraldy[dyi];
+	kirar = kirardy[dyi];
+	if(--dyi == -1)
+	{
+		actionMarks[dyn] = false;
+		dyi=0;
+		drawAll();
+		callback();
+		return true;
+	}
+	drawAll();
+	timeMark[dyn] = setTimeout("antidoya(" + callback + ")", 1000/60);
 	return false;
 }
 
