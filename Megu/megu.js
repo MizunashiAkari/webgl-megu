@@ -129,7 +129,7 @@ for(var i = 0; i < 124; i += 2) {
 var eyeballr = move(rotate(zoom(eyeballl, -1, 1, 0, 0, true), -5), 0.155, 0.07);
 eyeballl = move(rotate(eyeballl, 3), -0.165, 0.07);
 
-var pupill = oval(0, 0, 0.014, 0.02);
+var pupill = oval(0, 0, 0.013, 0.018);
 var pupilr = move(rotate(zoom(pupill, -1, 1, 0, 0, true), -8), 0.155, 0.075);
 pupil = move(rotate(pupill, 5), -0.165, 0.075);
 
@@ -151,17 +151,21 @@ for(var i = 0; i < meyeur.length; i += 2) {
 		meyeur[i]/=1.5;
 }
 var eyeur = copy(meyeur);
-var meyedl = oval(0, 0, 0.12, 0.095, 180, 360, false, [-0.01, -0.15]);
+var meyedl = oval(0, 0, 0.105, 0.095, 180, 360, false, [-0.02, -0.20]);
 for(var i = 0; i < meyeul.length; i += 2) {
 	if(meyedl[i]>0)
 		meyedl[i]/=1.5;
+	if(meyedl[i + 1]<0)
+		meyedl[i + 1]/=1.2;
 }
 var eyedl = copy(meyedl);
 //eyeul = zoom(eyeul, 1, 0.8, 0, 0, false, 1);
-var meyedr = oval(0, 0, 0.12, 0.095, 180, 360, false, [0.01, -0.15]);
+var meyedr = oval(0, 0, 0.105, 0.095, 180, 360, false, [0.02, -0.20]);
 for(var i = 0; i < meyeur.length; i += 2) {
 	if(meyedr[i]<0)
 		meyedr[i]/=1.5;
+	if(meyedr[i + 1]<0)
+		meyedr[i + 1]/=1.2;
 }
 var eyedr = copy(meyedr);
 		
@@ -262,8 +266,8 @@ window.onload = function init()
 	var eyeurns = move(rotate(zoom(meyeur, 1, 0.1, 0, 0, true, 1), -8), 0.15, 0.085);
 	var eyedlns = move(rotate(zoom(meyedl, 1, -0.3, 0, 0, true, 1), 5), -0.16, 0.085);
 	var eyedrns = move(rotate(zoom(meyedr, 1, -0.3, 0, 0, true, 1), -8), 0.15, 0.085);
-	var matugelns = move(rotate(rotate(zoom(zoom(matugelm, 0.95, 0.40, 0, -0.002, true, 1, 0, 4), 0.9, 0.6, 0, 0, false, 0, 0, 4), 5), -11, -0.105, 0), -0.16, 0.06);
-	var matugerns = move(rotate(rotate(zoom(zoom(matugerm, 0.95, 0.40, 0, -0.002, true, 1, 0, 4), 0.9, 0.6, 0, 0, false, 0, 0, 4), -8), 12, 0.105, 0), 0.15, 0.065);
+	var matugelns = move(rotate(rotate(zoom(zoom(matugelm, 0.95, 0.40, 0, -0.002, true, 1, 0, 4), 0.9, 0.6, 0, 0, false, 0, 0, 4), 5), -8, -0.105, 0), -0.16, 0.06);
+	var matugerns = move(rotate(rotate(zoom(zoom(matugerm, 0.95, 0.40, 0, -0.002, true, 1, 0, 4), 0.9, 0.6, 0, 0, false, 0, 0, 4), -8), 10, 0.105, 0), 0.15, 0.065);
 
 	var eyelashlns = rotate(rotate(zoom(rotate(eyelashl, -5, -0.16, 0.095, true), 0.9, 0.4, -0.16, 0.095), 5, -0.16, 0.095), -10, -0.265, 0.06);
 	var eyelashslns = rotate(rotate(zoom(zoom(rotate(eyelashsl, -5, -0.16, 0.085, true), 0.9, 0.32, -0.16, 0.085, false, 0, 0, 4), 0.9, 0.45, -0.16, 0.085, false, 1, 0, 4), 5, -0.16, 0.085), -16, -0.265, -0.02);
@@ -323,96 +327,255 @@ window.onload = function init()
 	
 	moutho = linearAnimeBuff(gl, mouth, zoom(mouth, 0.8, -1, 0, -0.195, true), 12);
 	
-	var eyeullcs = rotate(eyeul, 13, 0.1, -0.4, true);
-	var eyeurlcs = rotate(eyeur, 13, 0.1, -0.4, true);
-	var eyedllcs = rotate(eyedl, 13, 0.1, -0.4, true);
-	var eyedrlcs = rotate(eyedr, 13, 0.1, -0.4, true);
-	var matugellcs = rotate(matugel, 13, 0.1, -0.4, true);
-	var matugerlcs = rotate(matuger, 13, 0.1, -0.4, true);
-
-	var eyelashllcs = rotate(eyelashl, 13, 0.1, -0.4, true);
-	var eyelashsllcs = rotate(eyelashsl, 13, 0.1, -0.4, true);
-	var eyelashrlcs = rotate(eyelashr, 13, 0.1, -0.4, true);
-	var eyelashsrlcs = rotate(eyelashsr, 13, 0.1, -0.4, true);
+	var eyeulkss= move(rotate(zoom(meyeul, 1, 0.6, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyeurkss= move(rotate(zoom(meyeur, 1, 0.6, 0, 0, true, 1), -8), 0.15, 0.085);
+	var eyedlkss= move(rotate(zoom(meyedl, 1, 0.8, 0, 0, true, 1), 5), -0.16, 0.085);
+	var eyedrkss= move(rotate(zoom(meyedr, 1, 0.8, 0, 0, true, 1), -8), 0.15, 0.085);
+	var matugelkss= move(rotate(zoom(zoom(matugelm, 1, 0.7, 0, -0.02, true, 1, 0, 4), 1, 0.7, 0, 0, false, 0, 0, 4), 5), -0.16, 0.085);
+	var matugerkss= move(rotate(zoom(zoom(matugerm, 1, 0.7, 0, -0.02, true, 1, 0, 4), 1, 0.7, 0, 0, false, 0, 0, 4), -8), 0.15, 0.085);
 	
-	eyeullcb = linearAnimeBuff(gl, eyeullcs, rotate(eyeulc, 13, 0.1, -0.4, true), 12);
-	eyeurlcb = linearAnimeBuff(gl, eyeurlcs, rotate(eyeurc, 13, 0.1, -0.4, true), 12);
-	eyedllcb = linearAnimeBuff(gl, eyedllcs, rotate(eyedlc, 13, 0.1, -0.4, true), 12);
-	eyedrlcb = linearAnimeBuff(gl, eyedrlcs, rotate(eyedrc, 13, 0.1, -0.4, true), 12);
-	matugellcb = linearAnimeBuff(gl, matugellcs, rotate(matugelc, 13, 0.1, -0.4, true), 12);
-	matugerlcb = linearAnimeBuff(gl, matugerlcs, rotate(matugerc, 13, 0.1, -0.4, true), 12);
-
-	eyelashllcb = linearAnimeBuff(gl, eyelashllcs, rotate(eyelashlc, 13, 0.1, -0.4, true), 12);
-	eyelashsllcb = linearAnimeBuff(gl, eyelashsllcs, rotate(eyelashslc, 13, 0.1, -0.4, true), 12);
-	eyelashrlcb = linearAnimeBuff(gl, eyelashrlcs, rotate(eyelashrc, 13, 0.1, -0.4, true), 12);
-	eyelashsrlcb = linearAnimeBuff(gl, eyelashsrlcs, rotate(eyelashsrc, 13, 0.1, -0.4, true), 12);
+	var eyelashlkss= rotate(zoom(rotate(eyelashl, -5, -0.16, 0.095, true), 1, 0.65, -0.16, 0.095), 5, -0.16, 0.095);
+	var eyelashslkss= rotate(zoom(zoom(rotate(eyelashsl, -5, -0.16, 0.085, true), 1, 0.65, -0.16, 0.085, false, 0, 0, 4), 1, 0.65, -0.16, 0.085, false, 1, 0, 4), 5, -0.16, 0.085);
+	var eyelashrkss= rotate(zoom(rotate(eyelashr, 8, 0.15, 0.095, true), 1, 0.65, 0.15, 0.095), -8, 0.15, 0.095);
+	var eyelashsrkss= rotate(zoom(zoom(rotate(eyelashsr, 8, 0.15, 0.085, true), 1, 0.65, 0.15, 0.085, false, 0, 0, 4), 1, 0.65, 0.15, 0.085, false, 1, 0, 4), -8, 0.15, 0.085);
 	
-	eyeullc = linearAnimeBuff(gl, eyeul, rotate(eyeulns, 13, 0.1, -0.4, true), 10);//eyeullcs, 10);
-	eyeurlc = linearAnimeBuff(gl, eyeur, eyeurlcs, 10);
-	eyedllc = linearAnimeBuff(gl, eyedl, rotate(eyedlns, 13, 0.1, -0.4, true), 10);//eyedllcs, 10);
-	eyedrlc = linearAnimeBuff(gl, eyedr, eyedrlcs, 10);
-	matugellc = linearAnimeBuff(gl, matugel, rotate(matugelns, 13, 0.1, -0.4, true), 10);//matugellcs, 10);
-	matugerlc = linearAnimeBuff(gl, matuger, matugerlcs, 10);
+	eyeulks = linearAnimeBuff(gl, eyeul, eyeulkss, 12);
+	eyeurks = linearAnimeBuff(gl, eyeur, eyeurkss, 12);
+	eyedlks = linearAnimeBuff(gl, eyedl, eyedlkss, 12);
+	eyedrks = linearAnimeBuff(gl, eyedr, eyedrkss, 12);
+	matugelks = linearAnimeBuff(gl, matugel, matugelkss, 12);
+	matugerks = linearAnimeBuff(gl, matuger, matugerkss, 12);
 
-	eyelashllc = linearAnimeBuff(gl, eyelashl, rotate(eyelashlns, 13, 0.1, -0.4, true), 10);//eyelashllcs, 10);
-	eyelashsllc = linearAnimeBuff(gl, eyelashsl, rotate(eyelashslns, 13, 0.1, -0.4, true), 10);//eyelashsllcs, 10);
-	eyelashrlc = linearAnimeBuff(gl, eyelashr, eyelashrlcs, 10);
-	eyelashsrlc = linearAnimeBuff(gl, eyelashsr, eyelashsrlcs, 10);
+	eyelashlks = linearAnimeBuff(gl, eyelashl, eyelashlkss, 12);
+	eyelashslks = linearAnimeBuff(gl, eyelashsl, eyelashslkss, 12);
+	eyelashrks = linearAnimeBuff(gl, eyelashr, eyelashrkss, 12);
+	eyelashsrks = linearAnimeBuff(gl, eyelashsr, eyelashsrkss, 12);
 	
-	maeHairClc = linearAnimeBuff(gl, maeHairC, rotate(maeHairC, 13, 0.1, -0.4, true), 10);
-	faceLineDRlc = linearAnimeBuff(gl, faceLineDR, rotate(faceLineDR, 13, 0.1, -0.4, true), 10);
-	faceLineDLlc = linearAnimeBuff(gl, faceLineDL, rotate(faceLineDL, 13, 0.1, -0.4, true), 10);
+	eyeulksb = linearAnimeBuff(gl, eyeulkss, eyeulc, 10);
+	eyeurksb = linearAnimeBuff(gl, eyeurkss, eyeurc, 10);
+	eyedlksb = linearAnimeBuff(gl, eyedlkss, eyedlc, 10);
+	eyedrksb = linearAnimeBuff(gl, eyedrkss, eyedrc, 10);
+	matugelksb = linearAnimeBuff(gl, matugelkss, matugelc, 10);
+	matugerksb = linearAnimeBuff(gl, matugerkss, matugerc, 10);
 
-	maeHairURlc = linearAnimeBuff(gl, maeHairUR, rotate(maeHairUR, 13, 0.1, -0.4, true), 10);
-	maeHairULlc = linearAnimeBuff(gl, maeHairUL, rotate(maeHairUL, 13, 0.1, -0.4, true), 10);
+	eyelashlksb = linearAnimeBuff(gl, eyelashlkss, eyelashlc, 10);
+	eyelashslksb = linearAnimeBuff(gl, eyelashslkss, eyelashslc, 10);
+	eyelashrksb = linearAnimeBuff(gl, eyelashrkss, eyelashrc, 10);
+	eyelashsrksb = linearAnimeBuff(gl, eyelashsrkss, eyelashsrc, 10);
+	
+	mayugelks = linearAnimeBuff(gl, mayugeL, rotate(oval(-0.17, 0.21, 0.1, 0.11, 150, 30, false, [-0.17, 0.26]), 202, -0.17, 0.275), 12);
+	mayugerks = linearAnimeBuff(gl, mayugeR, rotate(oval(0.14, 0.22, 0.1, 0.11, 150, 30, false, [0.14, 0.27]), -200, 0.14, 0.285), 12);
+	
+	mouthks = linearAnimeBuff(gl, mouth, zoom(mouth, 0.8, -0.2, 0, -0.195, true), 12);
+	
+	
+	var eyeullcs = rotate(eyeul, -13, -0.1, -0.4, true);
+	var eyeurlcs = rotate(eyeur, -13, -0.1, -0.4, true);
+	var eyedllcs = rotate(eyedl, -13, -0.1, -0.4, true);
+	var eyedrlcs = rotate(eyedr, -13, -0.1, -0.4, true);
+	var matugellcs = rotate(matugel, -13, -0.1, -0.4, true);
+	var matugerlcs = rotate(matuger, -13, -0.1, -0.4, true);
 
-	maeHairDRlc = linearAnimeBuff(gl, maeHairDR, rotate(maeHairDR, 13, 0.1, -0.4, true), 10);
-	maeHairDLlc = linearAnimeBuff(gl, maeHairDL, rotate(maeHairDL, 13, 0.1, -0.4, true), 10);
+	var eyelashllcs = rotate(eyelashl, -13, -0.1, -0.4, true);
+	var eyelashsllcs = rotate(eyelashsl, -13, -0.1, -0.4, true);
+	var eyelashrlcs = rotate(eyelashr, -13, -0.1, -0.4, true);
+	var eyelashsrlcs = rotate(eyelashsr, -13, -0.1, -0.4, true);
+	
+	eyeullcb = linearAnimeBuff(gl, eyeullcs, rotate(eyeulc, -13, -0.1, -0.4, true), 12);
+	eyeurlcb = linearAnimeBuff(gl, eyeurlcs, rotate(eyeurc, -13, -0.1, -0.4, true), 12);
+	eyedllcb = linearAnimeBuff(gl, eyedllcs, rotate(eyedlc, -13, -0.1, -0.4, true), 12);
+	eyedrlcb = linearAnimeBuff(gl, eyedrlcs, rotate(eyedrc, -13, -0.1, -0.4, true), 12);
+	matugellcb = linearAnimeBuff(gl, matugellcs, rotate(matugelc, -13, -0.1, -0.4, true), 12);
+	matugerlcb = linearAnimeBuff(gl, matugerlcs, rotate(matugerc, -13, -0.1, -0.4, true), 12);
 
-	shitaHairLlc = linearAnimeBuff(gl, shitaHairL, rotate(shitaHairL, 13, 0.1, -0.4, true), 10);
-	shitaHairRlc = linearAnimeBuff(gl, shitaHairR, rotate(shitaHairR, 13, 0.1, -0.4, true), 10);
+	eyelashllcb = linearAnimeBuff(gl, eyelashllcs, rotate(eyelashlc, -13, -0.1, -0.4, true), 12);
+	eyelashsllcb = linearAnimeBuff(gl, eyelashsllcs, rotate(eyelashslc, -13, -0.1, -0.4, true), 12);
+	eyelashrlcb = linearAnimeBuff(gl, eyelashrlcs, rotate(eyelashrc, -13, -0.1, -0.4, true), 12);
+	eyelashsrlcb = linearAnimeBuff(gl, eyelashsrlcs, rotate(eyelashsrc, -13, -0.1, -0.4, true), 12);
+	
+	eyeullc = linearAnimeBuff(gl, eyeul, rotate(eyeulns, -13, -0.1, -0.4, true), 10);//eyeullcs, 10);
+	eyeurlc = linearAnimeBuff(gl, eyeur, rotate(eyeurns, -13, -0.1, -0.4, true), 10);//eyeurlcs, 10);
+	eyedllc = linearAnimeBuff(gl, eyedl, rotate(eyedlns, -13, -0.1, -0.4, true), 10);//eyedllcs, 10);
+	eyedrlc = linearAnimeBuff(gl, eyedr, rotate(eyedrns, -13, -0.1, -0.4, true), 10);//eyedrlcs, 10);
+	matugellc = linearAnimeBuff(gl, matugel, rotate(matugelns, -13, -0.1, -0.4, true), 10);//matugellcs, 10);
+	matugerlc = linearAnimeBuff(gl, matuger, rotate(matugerns, -13, -0.1, -0.4, true), 10);//matugerlcs, 10);
 
-	maeHairUDLlc = linearAnimeBuff(gl, maeHairUDL, rotate(maeHairUDL, 13, 0.1, -0.4, true), 10);
-	maeHairUDRlc = linearAnimeBuff(gl, maeHairUDR, rotate(maeHairUDR, 13, 0.1, -0.4, true), 10);
+	eyelashllc = linearAnimeBuff(gl, eyelashl, rotate(eyelashlns, -13, -0.1, -0.4, true), 10);//eyelashllcs, 10);
+	eyelashsllc = linearAnimeBuff(gl, eyelashsl, rotate(eyelashslns, -13, -0.1, -0.4, true), 10);//eyelashsllcs, 10);
+	eyelashrlc = linearAnimeBuff(gl, eyelashr, rotate(eyelashrns, -13, -0.1, -0.4, true), 10);//eyelashrlcs, 10);
+	eyelashsrlc = linearAnimeBuff(gl, eyelashsr, rotate(eyelashsrns, -13, -0.1, -0.4, true), 10);//eyelashsrlcs, 10);
+	
+	eyeullck = linearAnimeBuff(gl, eyeul, eyeullcs, 10);
+	//eyeurlck = linearAnimeBuff(gl, eyeur, eyeurlcs, 10);
+	eyedllck = linearAnimeBuff(gl, eyedl, eyedllcs, 10);
+	//eyedrlck = linearAnimeBuff(gl, eyedr, eyedrlcs, 10);
+	matugellck = linearAnimeBuff(gl, matugel, matugellcs, 10);
+	//matugerlck = linearAnimeBuff(gl, matuger, matugerlcs, 10);
 
-	mayugeLlc = linearAnimeBuff(gl, mayugeL, rotate(mayugeL, 13, 0.1, -0.4, true), 10);
-	mayugeRlc = linearAnimeBuff(gl, mayugeR, rotate(mayugeR, 13, 0.1, -0.4, true), 10);
+	eyelashllck = linearAnimeBuff(gl, eyelashl, eyelashllcs, 10);
+	eyelashsllck = linearAnimeBuff(gl, eyelashsl, eyelashsllcs, 10);
+	//eyelashrlck = linearAnimeBuff(gl, eyelashr, eyelashrlcs, 10);
+	//eyelashsrlck = linearAnimeBuff(gl, eyelashsr, eyelashsrlcs, 10);
+	
+	maeHairClc = linearAnimeBuff(gl, maeHairC, rotate(maeHairC, -13, -0.1, -0.4, true), 10);
+	faceLineDRlc = linearAnimeBuff(gl, faceLineDR, rotate(faceLineDR, -13, -0.1, -0.4, true), 10);
+	faceLineDLlc = linearAnimeBuff(gl, faceLineDL, rotate(faceLineDL, -13, -0.1, -0.4, true), 10);
 
-	hairCliplc = linearAnimeBuff(gl, hairClip, rotate(hairClip, 13, 0.1, -0.4, true), 10);
+	maeHairURlc = linearAnimeBuff(gl, maeHairUR, rotate(maeHairUR, -13, -0.1, -0.4, true), 10);
+	maeHairULlc = linearAnimeBuff(gl, maeHairUL, rotate(maeHairUL, -13, -0.1, -0.4, true), 10);
 
-	flowerlc = linearAnimeBuff(gl, flower, rotate(flower, 13, 0.1, -0.4, true), 10);
+	maeHairDRlc = linearAnimeBuff(gl, maeHairDR, rotate(maeHairDR, -13, -0.1, -0.4, true), 10);
+	maeHairDLlc = linearAnimeBuff(gl, maeHairDL, rotate(maeHairDL, -13, -0.1, -0.4, true), 10);
 
-	flowerCorelc = linearAnimeBuff(gl, flowerCore, rotate(flowerCore, 13, 0.1, -0.4, true), 10);
+	shitaHairLlc = linearAnimeBuff(gl, shitaHairL, rotate(shitaHairL, -13, -0.1, -0.4, true), 10);
+	shitaHairRlc = linearAnimeBuff(gl, shitaHairR, rotate(shitaHairR, -13, -0.1, -0.4, true), 10);
 
-	eyellc = linearAnimeBuff(gl, eyel, rotate(eyel, 13, 0.1, -0.4, true), 10);
-	eyerlc = linearAnimeBuff(gl, eyer, rotate(eyer, 13, 0.1, -0.4, true), 10); 
+	maeHairUDLlc = linearAnimeBuff(gl, maeHairUDL, rotate(maeHairUDL, -13, -0.1, -0.4, true), 10);
+	maeHairUDRlc = linearAnimeBuff(gl, maeHairUDR, rotate(maeHairUDR, -13, -0.1, -0.4, true), 10);
 
-	eyeballllc = linearAnimeBuff(gl, eyeballl, rotate(eyeballl, 13, 0.1, -0.4, true), 10);
-	eyeballrlc = linearAnimeBuff(gl, eyeballr, rotate(eyeballr, 13, 0.1, -0.4, true), 10);
+	mayugeLlck = linearAnimeBuff(gl, mayugeL, rotate(mayugeL, -13, -0.1, -0.4, true), 10);
+	mayugeLlc = linearAnimeBuff(gl, mayugeL, rotate(move(mayugeL, 0, -0.03, true), -13, -0.1, -0.4), 10);
+	mayugeRlc = linearAnimeBuff(gl, mayugeR, rotate(move(mayugeR, 0.01, -0.03, true), -13, -0.1, -0.4), 10);
 
-	pupilllc = linearAnimeBuff(gl, pupill, rotate(pupill, 13, 0.1, -0.4, true), 10);
-	pupilrlc = linearAnimeBuff(gl, pupilr, rotate(pupilr, 13, 0.1, -0.4, true), 10);
+	hairCliplc = linearAnimeBuff(gl, hairClip, rotate(hairClip, -13, -0.1, -0.4, true), 10);
 
-	kirallc = linearAnimeBuff(gl, kiral, rotate(kiral, 13, 0.1, -0.4, true), 10);
-	kirarlc = linearAnimeBuff(gl, kirar, rotate(kirar, 13, 0.1, -0.4, true), 10);
+	flowerlc = linearAnimeBuff(gl, flower, rotate(flower, -13, -0.1, -0.4, true), 10);
+
+	flowerCorelc = linearAnimeBuff(gl, flowerCore, rotate(flowerCore, -13, -0.1, -0.4, true), 10);
+
+	eyellc = linearAnimeBuff(gl, eyel, rotate(eyel, -13, -0.1, -0.4, true), 10);
+	eyerlc = linearAnimeBuff(gl, eyer, rotate(eyer, -13, -0.1, -0.4, true), 10); 
+
+	eyeballllc = linearAnimeBuff(gl, eyeballl, rotate(eyeballl, -13, -0.1, -0.4, true), 10);
+	eyeballrlc = linearAnimeBuff(gl, eyeballr, rotate(eyeballr, -13, -0.1, -0.4, true), 10);
+
+	pupilllc = linearAnimeBuff(gl, pupill, rotate(pupill, -13, -0.1, -0.4, true), 10);
+	pupilrlc = linearAnimeBuff(gl, pupilr, rotate(pupilr, -13, -0.1, -0.4, true), 10);
+
+	kirallc = linearAnimeBuff(gl, kiral, rotate(kiral, -13, -0.1, -0.4, true), 10);
+	kirarlc = linearAnimeBuff(gl, kirar, rotate(kirar, -13, -0.1, -0.4, true), 10);
 
 	
-	faceDRlc = linearAnimeBuff(gl, faceDR, rotate(faceDR, 13, 0.1, -0.4, true), 10);
-	faceDLlc = linearAnimeBuff(gl, faceDL, rotate(faceDL, 13, 0.1, -0.4, true), 10);
-	faceUlc = linearAnimeBuff(gl, faceU, rotate(faceU, 13, 0.1, -0.4, true), 10);
+	faceDRlc = linearAnimeBuff(gl, faceDR, rotate(faceDR, -13, -0.1, -0.4, true), 10);
+	faceDLlc = linearAnimeBuff(gl, faceDL, rotate(faceDL, -13, -0.1, -0.4, true), 10);
+	faceUlc = linearAnimeBuff(gl, faceU, rotate(faceU, -13, -0.1, -0.4, true), 10);
 
-	faceDULlc = linearAnimeBuff(gl, faceDUL, rotate(faceDUL, 13, 0.1, -0.4, true), 10);
-	faceDURlc = linearAnimeBuff(gl, faceDUR, rotate(faceDUR, 13, 0.1, -0.4, true), 10);
-	faceUULlc = linearAnimeBuff(gl, faceUUL, rotate(faceUUL, 13, 0.1, -0.4, true), 10);
-	faceUURlc = linearAnimeBuff(gl, faceUUR, rotate(faceUUR, 13, 0.1, -0.4, true), 10);
+	faceDULlc = linearAnimeBuff(gl, faceDUL, rotate(faceDUL, -13, -0.1, -0.4, true), 10);
+	faceDURlc = linearAnimeBuff(gl, faceDUR, rotate(faceDUR, -13, -0.1, -0.4, true), 10);
+	faceUULlc = linearAnimeBuff(gl, faceUUL, rotate(faceUUL, -13, -0.1, -0.4, true), 10);
+	faceUURlc = linearAnimeBuff(gl, faceUUR, rotate(faceUUR, -13, -0.1, -0.4, true), 10);
 
-	noselc = linearAnimeBuff(gl, nose, rotate(nose, 13, 0.1, -0.4, true), 10);
+	noselc = linearAnimeBuff(gl, nose, rotate(nose, -13, -0.1, -0.4, true), 10);
 
-	mouthlc = linearAnimeBuff(gl, mouth, rotate(mouth, 13, 0.1, -0.4, true), 10);
+	mouthlc = linearAnimeBuff(gl, mouth, rotate(mouth, -13, -0.1, -0.4, true), 10);
 	
-	necklc = linearAnimeBuff(gl, neck, mattrans([1, -0.14, 0, 0.95], neck, 0, -0.43, true), 10);
+	necklc = linearAnimeBuff(gl, neck, mattrans([1, 0.14, 0, 0.95], neck, 0, -0.43, true), 10);
 	
-	backHairlc = linearAnimeBuff(gl, backHair, move(rotate(backHair, 5, 0, 0.5, true), -0.12, -0.04), 10);
+	backHairlc = linearAnimeBuff(gl, backHair, move(rotate(backHair, -5, 0, 0.5, true), 0.12, -0.04), 10);
+	
+	var eyeulrcs = rotate(eyeul, 13, 0.1, -0.4, true);
+	var eyeurrcs = rotate(eyeur, 13, 0.1, -0.4, true);
+	var eyedlrcs = rotate(eyedl, 13, 0.1, -0.4, true);
+	var eyedrrcs = rotate(eyedr, 13, 0.1, -0.4, true);
+	var matugelrcs = rotate(matugel, 13, 0.1, -0.4, true);
+	var matugerrcs = rotate(matuger, 13, 0.1, -0.4, true);
+
+	var eyelashlrcs = rotate(eyelashl, 13, 0.1, -0.4, true);
+	var eyelashslrcs = rotate(eyelashsl, 13, 0.1, -0.4, true);
+	var eyelashrrcs = rotate(eyelashr, 13, 0.1, -0.4, true);
+	var eyelashsrrcs = rotate(eyelashsr, 13, 0.1, -0.4, true);
+	
+	eyeulrcb = linearAnimeBuff(gl, eyeulrcs, rotate(eyeurc, 13, 0.1, -0.4, true), 12);
+	eyeurrcb = linearAnimeBuff(gl, eyeurrcs, rotate(eyeurc, 13, 0.1, -0.4, true), 12);
+	eyedlrcb = linearAnimeBuff(gl, eyedlrcs, rotate(eyedrc, 13, 0.1, -0.4, true), 12);
+	eyedrrcb = linearAnimeBuff(gl, eyedrrcs, rotate(eyedrc, 13, 0.1, -0.4, true), 12);
+	matugelrcb = linearAnimeBuff(gl, matugelrcs, rotate(matugerc, 13, 0.1, -0.4, true), 12);
+	matugerrcb = linearAnimeBuff(gl, matugerrcs, rotate(matugerc, 13, 0.1, -0.4, true), 12);
+
+	eyelashlrcb = linearAnimeBuff(gl, eyelashlrcs, rotate(eyelashrc, 13, 0.1, -0.4, true), 12);
+	eyelashslrcb = linearAnimeBuff(gl, eyelashslrcs, rotate(eyelashsrc, 13, 0.1, -0.4, true), 12);
+	eyelashrrcb = linearAnimeBuff(gl, eyelashrrcs, rotate(eyelashrc, 13, 0.1, -0.4, true), 12);
+	eyelashsrrcb = linearAnimeBuff(gl, eyelashsrrcs, rotate(eyelashsrc, 13, 0.1, -0.4, true), 12);
+	
+	eyeulrc = linearAnimeBuff(gl, eyeul, rotate(eyeulns, 13, 0.1, -0.4, true), 10);//eyeulrcs, 10);
+	eyeurrc = linearAnimeBuff(gl, eyeur, rotate(eyeurns, 13, 0.1, -0.4, true), 10);//eyeurrcs, 10);
+	eyedlrc = linearAnimeBuff(gl, eyedl, rotate(eyedlns, 13, 0.1, -0.4, true), 10);//eyedlrcs, 10);
+	eyedrrc = linearAnimeBuff(gl, eyedr, rotate(eyedrns, 13, 0.1, -0.4, true), 10);//eyedrrcs, 10);
+	matugelrc = linearAnimeBuff(gl, matugel, rotate(matugelns, 13, 0.1, -0.4, true), 10);//matugelrcs, 10);
+	matugerrc = linearAnimeBuff(gl, matuger, rotate(matugerns, 13, 0.1, -0.4, true), 10);//matugerrcs, 10);
+
+	eyelashlrc = linearAnimeBuff(gl, eyelashl, rotate(eyelashlns, 13, 0.1, -0.4, true), 10);//eyelashlrcs, 10);
+	eyelashslrc = linearAnimeBuff(gl, eyelashsl, rotate(eyelashslns, 13, 0.1, -0.4, true), 10);//eyelashslrcs, 10);
+	eyelashrrc = linearAnimeBuff(gl, eyelashr, rotate(eyelashrns, 13, 0.1, -0.4, true), 10);//eyelashrrcs, 10);
+	eyelashsrrc = linearAnimeBuff(gl, eyelashsr, rotate(eyelashsrns, 13, 0.1, -0.4, true), 10);//eyelashsrrcs, 10);
+	
+	//eyeulrck = linearAnimeBuff(gl, eyeul, eyeulrcs, 10);
+	eyeurrck = linearAnimeBuff(gl, eyeur, eyeurrcs, 10);
+	//eyedlrck = linearAnimeBuff(gl, eyedl, eyedlrcs, 10);
+	eyedrrck = linearAnimeBuff(gl, eyedr, eyedrrcs, 10);
+	//matugelrck = linearAnimeBuff(gl, matugel, matugelrcs, 10);
+	matugerrck = linearAnimeBuff(gl, matuger, matugerrcs, 10);
+
+	//eyelashlrck = linearAnimeBuff(gl, eyelashl, eyelashlrcs, 10);
+	//eyelashslrck = linearAnimeBuff(gl, eyelashsl, eyelashslrcs, 10);
+	eyelashrrck = linearAnimeBuff(gl, eyelashr, eyelashrrcs, 10);
+	eyelashsrrck = linearAnimeBuff(gl, eyelashsr, eyelashsrrcs, 10);
+	
+	maeHairCrc = linearAnimeBuff(gl, maeHairC, rotate(maeHairC, 13, 0.1, -0.4, true), 10);
+	faceLineDRrc = linearAnimeBuff(gl, faceLineDR, rotate(faceLineDR, 13, 0.1, -0.4, true), 10);
+	faceLineDLrc = linearAnimeBuff(gl, faceLineDL, rotate(faceLineDL, 13, 0.1, -0.4, true), 10);
+
+	maeHairURrc = linearAnimeBuff(gl, maeHairUR, rotate(maeHairUR, 13, 0.1, -0.4, true), 10);
+	maeHairULrc = linearAnimeBuff(gl, maeHairUL, rotate(maeHairUL, 13, 0.1, -0.4, true), 10);
+
+	maeHairDRrc = linearAnimeBuff(gl, maeHairDR, rotate(maeHairDR, 13, 0.1, -0.4, true), 10);
+	maeHairDLrc = linearAnimeBuff(gl, maeHairDL, rotate(maeHairDL, 13, 0.1, -0.4, true), 10);
+
+	shitaHairLrc = linearAnimeBuff(gl, shitaHairL, rotate(shitaHairL, 13, 0.1, -0.4, true), 10);
+	shitaHairRrc = linearAnimeBuff(gl, shitaHairR, rotate(shitaHairR, 13, 0.1, -0.4, true), 10);
+
+	maeHairUDLrc = linearAnimeBuff(gl, maeHairUDL, rotate(maeHairUDL, 13, 0.1, -0.4, true), 10);
+	maeHairUDRrc = linearAnimeBuff(gl, maeHairUDR, rotate(maeHairUDR, 13, 0.1, -0.4, true), 10);
+
+	mayugeLrc = linearAnimeBuff(gl, mayugeL, rotate(move(mayugeL, 0, -0.03, true), 13, 0.1, -0.4), 10);
+	mayugeRrck = linearAnimeBuff(gl, mayugeR, rotate(mayugeR, 13, 0.1, -0.4, true), 10);
+	mayugeRrc = linearAnimeBuff(gl, mayugeR, rotate(move(mayugeR, 0.01, -0.03, true), 13, 0.1, -0.4), 10);
+
+	hairCliprc = linearAnimeBuff(gl, hairClip, rotate(hairClip, 13, 0.1, -0.4, true), 10);
+
+	flowerrc = linearAnimeBuff(gl, flower, rotate(flower, 13, 0.1, -0.4, true), 10);
+
+	flowerCorerc = linearAnimeBuff(gl, flowerCore, rotate(flowerCore, 13, 0.1, -0.4, true), 10);
+
+	eyelrc = linearAnimeBuff(gl, eyel, rotate(eyel, 13, 0.1, -0.4, true), 10);
+	eyerrc = linearAnimeBuff(gl, eyer, rotate(eyer, 13, 0.1, -0.4, true), 10); 
+
+	eyeballlrc = linearAnimeBuff(gl, eyeballl, rotate(eyeballl, 13, 0.1, -0.4, true), 10);
+	eyeballrrc = linearAnimeBuff(gl, eyeballr, rotate(eyeballr, 13, 0.1, -0.4, true), 10);
+
+	pupillrc = linearAnimeBuff(gl, pupill, rotate(pupill, 13, 0.1, -0.4, true), 10);
+	pupilrrc = linearAnimeBuff(gl, pupilr, rotate(pupilr, 13, 0.1, -0.4, true), 10);
+
+	kiralrc = linearAnimeBuff(gl, kiral, rotate(kiral, 13, 0.1, -0.4, true), 10);
+	kirarrc = linearAnimeBuff(gl, kirar, rotate(kirar, 13, 0.1, -0.4, true), 10);
+
+	
+	faceDRrc = linearAnimeBuff(gl, faceDR, rotate(faceDR, 13, 0.1, -0.4, true), 10);
+	faceDLrc = linearAnimeBuff(gl, faceDL, rotate(faceDL, 13, 0.1, -0.4, true), 10);
+	faceUrc = linearAnimeBuff(gl, faceU, rotate(faceU, 13, 0.1, -0.4, true), 10);
+
+	faceDULrc = linearAnimeBuff(gl, faceDUL, rotate(faceDUL, 13, 0.1, -0.4, true), 10);
+	faceDURrc = linearAnimeBuff(gl, faceDUR, rotate(faceDUR, 13, 0.1, -0.4, true), 10);
+	faceUULrc = linearAnimeBuff(gl, faceUUL, rotate(faceUUL, 13, 0.1, -0.4, true), 10);
+	faceUURrc = linearAnimeBuff(gl, faceUUR, rotate(faceUUR, 13, 0.1, -0.4, true), 10);
+
+	noserc = linearAnimeBuff(gl, nose, rotate(nose, 13, 0.1, -0.4, true), 10);
+
+	mouthrc = linearAnimeBuff(gl, mouth, rotate(mouth, 13, 0.1, -0.4, true), 10);
+	
+	neckrc = linearAnimeBuff(gl, neck, mattrans([1, -0.14, 0, 0.95], neck, 0, -0.43, true), 10);
+	
+	backHairrc = linearAnimeBuff(gl, backHair, move(rotate(backHair, 5, 0, 0.5, true), -0.12, -0.04), 10);
 	
 	backHair = positionBuff(gl, backHair);
 
@@ -512,19 +675,30 @@ window.onload = function init()
 
 	mouth = positionBuff(gl, mouth);
 	
-	drawAll();
+	addAction("blink", "普通");
+	addAction("nico", "ニコ");
+	addAction("kanashii", "悲しい");
+	addAction("oko", "怒る");
+	addAction("crookl", "ウインク（右）");
+	addAction("kiral", "ウインク（右）");
+	addAction("crookr", "ウインク（左）");
+	addAction("kirar", "ウインク（左）");
 	
-	setTimeout("blink()", Math.random() * 3000);
-	
-	addAction("blink");
-	addAction("nico");
-	addAction("oko");
-	addAction("crookl");
+	document.getElementById("blink").setAttribute("checked", "checked");
 
 	document.getElementById("blink").onclick=function(){action(bn)};
 	document.getElementById("nico").onclick=function(){action(nn)};
+	document.getElementById("kanashii").onclick=function(){action(ksn)};
 	document.getElementById("oko").onclick=function(){action(on)};
 	document.getElementById("crookl").onclick=function(){action(lcn)};
+	document.getElementById("kiral").onclick=function(){action(lckn)};
+	document.getElementById("crookr").onclick=function(){action(rcn)};
+	document.getElementById("kirar").onclick=function(){action(rckn)};
+	
+	actionMarks[bn] = true;
+	timeMark[bn] = setTimeout("blink()", Math.random() * 3000);
+	
+	drawAll();
 }
 
 
@@ -545,7 +719,6 @@ var bb = false;
 var bn = register(false, 0, blink, antiblink);
 
 function blink() {
-	actionMarks[bn] = true;
 	eyeul = eyeulb[bi];
 	eyeur = eyeurb[bi];
 	eyedl = eyedlb[bi];
@@ -809,7 +982,7 @@ function crookl() {
 			lcb = actionMarks[lcn] = true;
 			lci -= 1;
 			drawAll();
-			timeMark[lcn] = setTimeout("crooklblink()", Math.random() * 3000  + 200);
+			//timeMark[lcn] = setTimeout("crooklblink()", Math.random() * 3000  + 200);
 			return;
 		}
 		timeMark[lcn] = setTimeout("crookl()", 1000/60);
@@ -832,16 +1005,16 @@ var lcbi = 0;
 var lcbb = false;
 
 function crooklblink() {
-	//eyeul = eyeullcb[lcbi];
-	eyeur = eyeurlcb[lcbi];
-	//eyedl = eyedllcb[lcbi];
-	eyedr = eyedrlcb[lcbi];
-	//matugel = matugellcb[lcbi];
-	matuger = matugerlcb[lcbi];
-	//eyelashl = eyelashllcb[lcbi];
-	//eyelashsl = eyelashsllcb[lcbi];
-	eyelashr = eyelashrlcb[lcbi];
-	eyelashsr = eyelashsrlcb[lcbi];
+	eyeul = eyeullcb[lcbi];
+	//eyeur = eyeurlcb[lcbi];
+	eyedl = eyedllcb[lcbi];
+	//eyedr = eyedrlcb[lcbi];
+	matugel = matugellcb[lcbi];
+	//matuger = matugerlcb[lcbi];
+	eyelashl = eyelashllcb[lcbi];
+	eyelashsl = eyelashsllcb[lcbi];
+	//eyelashr = eyelashrlcb[lcbi];
+	//eyelashsr = eyelashsrlcb[lcbi];
 	if(!lcbb) {
 		if(++lcbi == matugellcb.length)
 		{
@@ -854,12 +1027,12 @@ function crooklblink() {
 		{
 			lcbb = false;
 			lcbi=0;
-			timeMark[lcn] = setTimeout("crooklblink()", Math.random() * 3000  + 200);
+			timeMark[lckn] = setTimeout("crooklblink()", Math.random() * 3000  + 200);
 			drawAll();
 			return;
 		}
 	}
-	timeMark[lcn] = setTimeout("crooklblink()", 1000/60);
+	timeMark[lckn] = setTimeout("crooklblink()", 1000/60);
 	drawAll();
 }
 
@@ -943,6 +1116,635 @@ function anticrookl(callback) {
 	return false;
 }
 
+var eyeullck;
+var eyedllck;
+var matugellck;
+
+var eyelashllck;
+var eyelashsllck;
+
+var mayugeLlck;
+
+var lcki = 0;
+var lckb = false;
+var lckn = register(false, 0, croolkiral, antikiral);
+
+
+function croolkiral() {
+	if(!lckb) {
+		maeHairC = maeHairClc[lcki];
+		faceLineDR = faceLineDRlc[lcki];
+		faceLineDL = faceLineDLlc[lcki];
+			
+		maeHairUR = maeHairURlc[lcki];
+		maeHairUL = maeHairULlc[lcki];
+		
+		maeHairDR = maeHairDRlc[lcki];
+		maeHairDL = maeHairDLlc[lcki];
+			
+		shitaHairL = shitaHairLlc[lcki];
+		shitaHairR = shitaHairRlc[lcki];
+			
+		maeHairUDL = maeHairUDLlc[lcki];
+		maeHairUDR = maeHairUDRlc[lcki];
+			
+		mayugeL = mayugeLlck[lcki];
+		mayugeR = mayugeRlc[lcki];
+			
+		hairClip = hairCliplc[lcki];
+			
+		flower = flowerlc[lcki];
+			
+		flowerCore = flowerCorelc[lcki];
+			
+		eyel = eyellc[lcki];
+		eyer = eyerlc[lcki]; 
+			
+		eyeballl = eyeballllc[lcki];
+		eyeballr = eyeballrlc[lcki];
+			
+		pupill = pupilllc[lcki];
+		pupilr = pupilrlc[lcki];
+			
+		kiral = kirallc[lcki];
+		kirar = kirarlc[lcki];
+			
+			 
+		faceDR = faceDRlc[lcki];
+		faceDL = faceDLlc[lcki];
+		faceU = faceUlc[lcki];
+			
+		faceDUL = faceDULlc[lcki];
+		faceDUR = faceDURlc[lcki];
+		faceUUL = faceUULlc[lcki];
+		faceUUR = faceUURlc[lcki];
+			
+		nose = noselc[lcki];
+			
+		mouth = mouthlc[lcki];
+		
+		backHair = backHairlc[lcki];
+
+		eyeul = eyeullck[lcki];
+		eyeur = eyeurlc[lcki];
+		eyedl = eyedllck[lcki];
+		eyedr = eyedrlc[lcki];
+		matugel = matugellck[lcki];
+		matuger = matugerlc[lcki];
+		eyelashl = eyelashllck[lcki];
+		eyelashsl = eyelashsllck[lcki];
+		eyelashr = eyelashrlc[lcki];
+		eyelashsr = eyelashsrlc[lcki];
+		
+		neck = necklc[lcki];
+		
+		if(++lcki == eyeullc.length)
+		{
+			lckb = actionMarks[lckn] = true;
+			lcki -= 1;
+			drawAll();
+			timeMark[lckn] = setTimeout("crooklblink()", Math.random() * 3000  + 200);
+			return;
+		}
+		timeMark[lckn] = setTimeout("croolkiral()", 1000/60);
+		drawAll();
+	}
+}
+
+function antikiral(callback) {
+	lckb = false;
+	maeHairC = maeHairClc[lcki];
+	faceLineDR = faceLineDRlc[lcki];
+	faceLineDL = faceLineDLlc[lcki];
+		
+	maeHairUR = maeHairURlc[lcki];
+	maeHairUL = maeHairULlc[lcki];
+		
+	maeHairDR = maeHairDRlc[lcki];
+	maeHairDL = maeHairDLlc[lcki];
+		
+	shitaHairL = shitaHairLlc[lcki];
+	shitaHairR = shitaHairRlc[lcki];
+		
+	maeHairUDL = maeHairUDLlc[lcki];
+	maeHairUDR = maeHairUDRlc[lcki];
+		
+	mayugeL = mayugeLlck[lcki];
+	mayugeR = mayugeRlc[lcki];
+		
+	hairClip = hairCliplc[lcki];
+		
+	flower = flowerlc[lcki];
+		
+	flowerCore = flowerCorelc[lcki];
+		
+	eyel = eyellc[lcki];
+	eyer = eyerlc[lcki]; 
+		
+	eyeballl = eyeballllc[lcki];
+	eyeballr = eyeballrlc[lcki];
+		
+	pupill = pupilllc[lcki];
+	pupilr = pupilrlc[lcki];
+		
+	kiral = kirallc[lcki];
+	kirar = kirarlc[lcki];
+		
+		 
+	faceDR = faceDRlc[lcki];
+	faceDL = faceDLlc[lcki];
+	faceU = faceUlc[lcki];
+		
+	faceDUL = faceDULlc[lcki];
+	faceDUR = faceDURlc[lcki];
+	faceUUL = faceUULlc[lcki];
+	faceUUR = faceUURlc[lcki];
+		
+	nose = noselc[lcki];
+	
+	backHair = backHairlc[lcki];
+		
+	mouth = mouthlc[lcki];
+	eyeul = eyeullck[lcki];
+	eyeur = eyeurlc[lcki];
+	eyedl = eyedllck[lcki];
+	eyedr = eyedrlc[lcki];
+	matugel = matugellck[lcki];
+	matuger = matugerlc[lcki];
+	eyelashl = eyelashllck[lcki];
+	eyelashsl = eyelashsllck[lcki];
+	eyelashr = eyelashrlc[lcki];
+	eyelashsr = eyelashsrlc[lcki];
+		
+	neck = necklc[lcki];
+	
+	if(--lcki == -1)
+	{
+		actionMarks[lckn] = false;
+		lcki=0;
+		drawAll();
+		callback();
+		return true;
+	}
+	drawAll();
+	timeMark[lckn] = setTimeout("antikiral(" + callback + ")", 1000/60);
+	return false;
+}
+
+var maeHairCrc;
+var faceLineDRrc;
+var faceLineDLrc;
+    
+var maeHairURrc;
+var maeHairULrc;
+    
+var maeHairDRrc;
+var maeHairDLrc;
+    
+var shitaHairLrc;
+var shitaHairRrc;
+    
+var maeHairUDLrc;
+var maeHairUDRrc;
+    
+var mayugeLrc;
+var mayugeRrc;
+    
+var hairCliprc;
+    
+var flowerrc;
+    
+var flowerCorerc;
+    
+var eyelrc;
+var eyerrc; 
+    
+var eyeballlrc;
+var eyeballrrc;
+    
+var pupillrc;
+var pupilrrc;
+    
+var kiralrc;
+var kirarrc;
+    
+	 
+var faceDRrc;
+var faceDLrc;
+var faceUrc;
+    
+var faceDULrc;
+var faceDURrc;
+var faceUULrc;
+var faceUURrc;
+    
+var noserc;
+    
+var mouthrc;
+
+var eyeulrc;
+var eyeurrc;
+var eyedlrc;
+var eyedrrc;
+var matugelrc;
+var matugerrc;
+
+var eyelashlrc;
+var eyelashslrc;
+var eyelashrrc;
+var eyelashsrrc;
+
+var neckrc;
+
+var backHairrc;
+
+var rci = 0;
+var rcb = false;
+var rcn = register(false, 0, crookr, anticrookr);
+
+
+function crookr() {
+	if(!rcb) {
+		maeHairC = maeHairCrc[rci];
+		faceLineDR = faceLineDRrc[rci];
+		faceLineDL = faceLineDLrc[rci];
+			
+		maeHairUR = maeHairURrc[rci];
+		maeHairUL = maeHairULrc[rci];
+			
+		maeHairDR = maeHairDRrc[rci];
+		maeHairDL = maeHairDLrc[rci];
+			
+		shitaHairL = shitaHairLrc[rci];
+		shitaHairR = shitaHairRrc[rci];
+			
+		maeHairUDL = maeHairUDLrc[rci];
+		maeHairUDR = maeHairUDRrc[rci];
+			
+		mayugeL = mayugeLrc[rci];
+		mayugeR = mayugeRrc[rci];
+			
+		hairClip = hairCliprc[rci];
+			
+		flower = flowerrc[rci];
+			
+		flowerCore = flowerCorerc[rci];
+			
+		eyel = eyelrc[rci];
+		eyer = eyerrc[rci]; 
+			
+		eyeballl = eyeballlrc[rci];
+		eyeballr = eyeballrrc[rci];
+			
+		pupill = pupillrc[rci];
+		pupilr = pupilrrc[rci];
+			
+		kiral = kiralrc[rci];
+		kirar = kirarrc[rci];
+			
+			 
+		faceDR = faceDRrc[rci];
+		faceDL = faceDLrc[rci];
+		faceU = faceUrc[rci];
+			
+		faceDUL = faceDULrc[rci];
+		faceDUR = faceDURrc[rci];
+		faceUUL = faceUULrc[rci];
+		faceUUR = faceUURrc[rci];
+			
+		nose = noserc[rci];
+			
+		mouth = mouthrc[rci];
+		
+		backHair = backHairrc[rci];
+
+		eyeul = eyeulrc[rci];
+		eyeur = eyeurrc[rci];
+		eyedl = eyedlrc[rci];
+		eyedr = eyedrrc[rci];
+		matugel = matugelrc[rci];
+		matuger = matugerrc[rci];
+		eyelashl = eyelashlrc[rci];
+		eyelashsl = eyelashslrc[rci];
+		eyelashr = eyelashrrc[rci];
+		eyelashsr = eyelashsrrc[rci];
+		
+		neck = neckrc[rci];
+		
+		if(++rci == eyeulrc.length)
+		{
+			rcb = actionMarks[rcn] = true;
+			rci -= 1;
+			drawAll();
+			//timeMark[rcn] = setTimeout("crookrblink()", Math.random() * 3000  + 200);
+			return;
+		}
+		timeMark[rcn] = setTimeout("crookr()", 1000/60);
+		drawAll();
+	}
+}
+
+var eyeulrcb;
+var eyeurrcb;
+var eyedlrcb;
+var eyedrrcb;
+var matugelrcb;
+var matugerrcb;
+var eyelashlrcb;
+var eyelashslrcb;
+var eyelashrrcb;
+var eyelashsrrcb;
+
+var rcbi = 0;
+var rcbb = false;
+
+function crookrblink() {
+	//eyeul = eyeulrcb[rcbi];
+	eyeur = eyeurrcb[rcbi];
+	//eyedl = eyedlrcb[rcbi];
+	eyedr = eyedrrcb[rcbi];
+	//matugel = matugelrcb[rcbi];
+	matuger = matugerrcb[rcbi];
+	//eyelashl = eyelashlrcb[rcbi];
+	//eyelashsl = eyelashslrcb[rcbi];
+	eyelashr = eyelashrrcb[rcbi];
+	eyelashsr = eyelashsrrcb[rcbi];
+	if(!rcbb) {
+		if(++rcbi == matugelrcb.length)
+		{
+			rcbb = true;
+			rcbi-=1;
+		}
+	}
+	else {
+		if(--rcbi == -1)
+		{
+			rcbb = false;
+			rcbi=0;
+			timeMark[rckn] = setTimeout("crookrblink()", Math.random() * 3000  + 200);
+			drawAll();
+			return;
+		}
+	}
+	timeMark[rckn] = setTimeout("crookrblink()", 1000/60);
+	drawAll();
+}
+
+function anticrookr(callback) {
+	rcb = false;
+	maeHairC = maeHairCrc[rci];
+	faceLineDR = faceLineDRrc[rci];
+	faceLineDL = faceLineDLrc[rci];
+		
+	maeHairUR = maeHairURrc[rci];
+	maeHairUL = maeHairULrc[rci];
+		
+	maeHairDR = maeHairDRrc[rci];
+	maeHairDL = maeHairDLrc[rci];
+		
+	shitaHairL = shitaHairLrc[rci];
+	shitaHairR = shitaHairRrc[rci];
+		
+	maeHairUDL = maeHairUDLrc[rci];
+	maeHairUDR = maeHairUDRrc[rci];
+		
+	mayugeL = mayugeLrc[rci];
+	mayugeR = mayugeRrc[rci];
+		
+	hairClip = hairCliprc[rci];
+		
+	flower = flowerrc[rci];
+		
+	flowerCore = flowerCorerc[rci];
+		
+	eyel = eyelrc[rci];
+	eyer = eyerrc[rci]; 
+		
+	eyeballl = eyeballlrc[rci];
+	eyeballr = eyeballrrc[rci];
+		
+	pupill = pupillrc[rci];
+	pupilr = pupilrrc[rci];
+		
+	kiral = kiralrc[rci];
+	kirar = kirarrc[rci];
+		
+		 
+	faceDR = faceDRrc[rci];
+	faceDL = faceDLrc[rci];
+	faceU = faceUrc[rci];
+		
+	faceDUL = faceDULrc[rci];
+	faceDUR = faceDURrc[rci];
+	faceUUL = faceUULrc[rci];
+	faceUUR = faceUURrc[rci];
+		
+	nose = noserc[rci];
+	
+	backHair = backHairrc[rci];
+		
+	mouth = mouthrc[rci];
+	eyeul = eyeulrc[rci];
+	eyeur = eyeurrc[rci];
+	eyedl = eyedlrc[rci];
+	eyedr = eyedrrc[rci];
+	matugel = matugelrc[rci];
+	matuger = matugerrc[rci];
+	eyelashl = eyelashlrc[rci];
+	eyelashsl = eyelashslrc[rci];
+	eyelashr = eyelashrrc[rci];
+	eyelashsr = eyelashsrrc[rci];
+		
+	neck = neckrc[rci];
+	
+	if(--rci == -1)
+	{
+		actionMarks[rcn] = false;
+		rci=0;
+		drawAll();
+		callback();
+		return true;
+	}
+	drawAll();
+	timeMark[rcn] = setTimeout("anticrookr(" + callback + ")", 1000/60);
+	return false;
+}
+
+var eyeurrck;
+var eyedrrck;
+var matugerrck;
+
+var eyelashrrck;
+var eyelashsrrck;
+
+var mayugeRrck;
+
+var rcki = 0;
+var rckb = false;
+var rckn = register(false, 0, croolkirar, antikirar);
+
+
+function croolkirar() {
+	if(!rckb) {
+		maeHairC = maeHairCrc[rcki];
+		faceLineDR = faceLineDRrc[rcki];
+		faceLineDL = faceLineDLrc[rcki];
+			
+		maeHairUR = maeHairURrc[rcki];
+		maeHairUL = maeHairULrc[rcki];
+		
+		maeHairDR = maeHairDRrc[rcki];
+		maeHairDL = maeHairDLrc[rcki];
+			
+		shitaHairL = shitaHairLrc[rcki];
+		shitaHairR = shitaHairRrc[rcki];
+			
+		maeHairUDL = maeHairUDLrc[rcki];
+		maeHairUDR = maeHairUDRrc[rcki];
+			
+		mayugeL = mayugeLrc[rcki];
+		mayugeR = mayugeRrck[rcki];
+			
+		hairClip = hairCliprc[rcki];
+			
+		flower = flowerrc[rcki];
+			
+		flowerCore = flowerCorerc[rcki];
+			
+		eyel = eyelrc[rcki];
+		eyer = eyerrc[rcki]; 
+			
+		eyeballl = eyeballlrc[rcki];
+		eyeballr = eyeballrrc[rcki];
+			
+		pupill = pupillrc[rcki];
+		pupilr = pupilrrc[rcki];
+			
+		kiral = kiralrc[rcki];
+		kirar = kirarrc[rcki];
+			
+			 
+		faceDR = faceDRrc[rcki];
+		faceDL = faceDLrc[rcki];
+		faceU = faceUrc[rcki];
+			
+		faceDUL = faceDULrc[rcki];
+		faceDUR = faceDURrc[rcki];
+		faceUUL = faceUULrc[rcki];
+		faceUUR = faceUURrc[rcki];
+			
+		nose = noserc[rcki];
+			
+		mouth = mouthrc[rcki];
+		
+		backHair = backHairrc[rcki];
+
+		eyeul = eyeulrc[rcki];
+		eyeur = eyeurrck[rcki];
+		eyedl = eyedlrc[rcki];
+		eyedr = eyedrrck[rcki];
+		matugel = matugelrc[rcki];
+		matuger = matugerrck[rcki];
+		eyelashl = eyelashlrc[rcki];
+		eyelashsl = eyelashslrc[rcki];
+		eyelashr = eyelashrrck[rcki];
+		eyelashsr = eyelashsrrck[rcki];
+		
+		neck = neckrc[rcki];
+		
+		if(++rcki == eyeulrc.length)
+		{
+			rckb = actionMarks[rckn] = true;
+			rcki -= 1;
+			drawAll();
+			timeMark[rckn] = setTimeout("crookrblink()", Math.random() * 3000  + 200);
+			return;
+		}
+		timeMark[rckn] = setTimeout("croolkirar()", 1000/60);
+		drawAll();
+	}
+}
+
+function antikirar(callback) {
+	rckb = false;
+	maeHairC = maeHairCrc[rcki];
+	faceLineDR = faceLineDRrc[rcki];
+	faceLineDL = faceLineDLrc[rcki];
+		
+	maeHairUR = maeHairURrc[rcki];
+	maeHairUL = maeHairULrc[rcki];
+		
+	maeHairDR = maeHairDRrc[rcki];
+	maeHairDL = maeHairDLrc[rcki];
+		
+	shitaHairL = shitaHairLrc[rcki];
+	shitaHairR = shitaHairRrc[rcki];
+		
+	maeHairUDL = maeHairUDLrc[rcki];
+	maeHairUDR = maeHairUDRrc[rcki];
+		
+	mayugeL = mayugeLrc[rcki];
+	mayugeR = mayugeRrck[rcki];
+		
+	hairClip = hairCliprc[rcki];
+		
+	flower = flowerrc[rcki];
+		
+	flowerCore = flowerCorerc[rcki];
+		
+	eyel = eyelrc[rcki];
+	eyer = eyerrc[rcki]; 
+		
+	eyeballl = eyeballlrc[rcki];
+	eyeballr = eyeballrrc[rcki];
+		
+	pupill = pupillrc[rcki];
+	pupilr = pupilrrc[rcki];
+		
+	kiral = kiralrc[rcki];
+	kirar = kirarrc[rcki];
+		
+		 
+	faceDR = faceDRrc[rcki];
+	faceDL = faceDLrc[rcki];
+	faceU = faceUrc[rcki];
+		
+	faceDUL = faceDULrc[rcki];
+	faceDUR = faceDURrc[rcki];
+	faceUUL = faceUULrc[rcki];
+	faceUUR = faceUURrc[rcki];
+		
+	nose = noserc[rcki];
+	
+	backHair = backHairrc[rcki];
+		
+	mouth = mouthrc[rcki];
+	eyeul = eyeulrc[rcki];
+	eyeur = eyeurrck[rcki];
+	eyedl = eyedlrc[rcki];
+	eyedr = eyedrrck[rcki];
+	matugel = matugelrc[rcki];
+	matuger = matugerrck[rcki];
+	eyelashl = eyelashlrc[rcki];
+	eyelashsl = eyelashslrc[rcki];
+	eyelashr = eyelashrrck[rcki];
+	eyelashsr = eyelashsrrck[rcki];
+		
+	neck = neckrc[rcki];
+	
+	if(--rcki == -1)
+	{
+		actionMarks[rckn] = false;
+		rcki=0;
+		drawAll();
+		callback();
+		return true;
+	}
+	drawAll();
+	timeMark[rckn] = setTimeout("antikirar(" + callback + ")", 1000/60);
+	return false;
+}
+
 var eyeulo;
 var eyeuro;
 var eyedlo;
@@ -962,7 +1764,7 @@ var ob = false;
 var on = register(false, 0, oko, antioko);
 
 function oko() {
-	if(!nb) {
+	if(!ob) {
 		eyeul = eyeulo[oi];
 		eyeur = eyeuro[oi];
 		eyedl = eyedlo[oi];
@@ -1036,7 +1838,7 @@ function okoblink() {
 }
 
 function antioko(callback) {
-	nb = false;
+	ob = false;
 	eyeul = eyeulo[oi];
 	eyeur = eyeuro[oi];
 	eyedl = eyedlo[oi];
@@ -1060,6 +1862,126 @@ function antioko(callback) {
 	}
 	drawAll();
 	timeMark[on] = setTimeout("antioko(" + callback + ")", 1000/60);
+	return false;
+}
+
+var eyeulks;
+var eyeurks;
+var eyedlks;
+var eyedrks;
+var matugelks;
+var matugerks;
+var eyelashlks;
+var eyelashslks;
+var eyelashrks;
+var eyelashsrks;
+var mayugelks;
+var mayugerks;
+var mouthks;
+
+var ksi = 0;
+var ksb = false;
+var ksn = register(false, 0, kanashii, antikanashii);
+
+function kanashii() {
+	if(!ksb) {
+		eyeul = eyeulks[ksi];
+		eyeur = eyeurks[ksi];
+		eyedl = eyedlks[ksi];
+		eyedr = eyedrks[ksi];
+		matugel = matugelks[ksi];
+		matuger = matugerks[ksi];
+		eyelashl = eyelashlks[ksi];
+		eyelashsl = eyelashslks[ksi];
+		eyelashr = eyelashrks[ksi];
+		eyelashsr = eyelashsrks[ksi];
+		mayugeL = mayugelks[ksi];
+		mayugeR = mayugerks[ksi];
+		mouth = mouthks[ksi];
+		if(++ksi == mayugelks.length)
+		{
+			ksb = actionMarks[ksn] = true;
+			ksi -= 1;
+			timeMark[ksn] = setTimeout("kanashiiblink()", Math.random() * 3000  + 200);
+			drawAll();
+			return;
+		}
+		timeMark[ksn] = setTimeout("kanashii()", 1000/60);
+		drawAll();
+	}
+}
+
+var eyeulksb;
+var eyeurksb;
+var eyedlksb;
+var eyedrksb;
+var matugelksb;
+var matugerksb;
+var eyelashlksb;
+var eyelashslksb;
+var eyelashrksb;
+var eyelashsrksb;
+
+var ksbi = 0;
+var ksbb = false;
+
+function kanashiiblink() {
+	eyeul = eyeulksb[ksbi];
+	eyeur = eyeurksb[ksbi];
+	eyedl = eyedlksb[ksbi];
+	eyedr = eyedrksb[ksbi];
+	matugel = matugelksb[ksbi];
+	matuger = matugerksb[ksbi];
+	eyelashl = eyelashlksb[ksbi];
+	eyelashsl = eyelashslksb[ksbi];
+	eyelashr = eyelashrksb[ksbi];
+	eyelashsr = eyelashsrksb[ksbi];
+	if(!ksbb) {
+		if(++ksbi == matugelksb.length)
+		{
+			ksbb = true;
+			ksbi-=2;
+		}
+	}
+	else {
+		if(--ksbi == -1)
+		{
+			ksbb = false;
+			ksbi=0;
+			timeMark[ksn] = setTimeout("kanashiiblink()", Math.random() * 3000  + 200);
+			drawAll();
+			return;
+		}
+	}
+	timeMark[ksn] = setTimeout("kanashiiblink()", 1000/60);
+	drawAll();
+}
+
+function antikanashii(callback) {
+	ksb = false;
+	eyeul = eyeulks[ksi];
+	eyeur = eyeurks[ksi];
+	eyedl = eyedlks[ksi];
+	eyedr = eyedrks[ksi];
+	matugel = matugelks[ksi];
+	matuger = matugerks[ksi];
+	eyelashl = eyelashlks[ksi];
+	eyelashsl = eyelashslks[ksi];
+	eyelashr = eyelashrks[ksi];
+	eyelashsr = eyelashsrks[ksi];
+	mayugeL = mayugelks[ksi];
+	mayugeR = mayugerks[ksi];
+	mouth = mouthks[ksi];
+	if(--ksi == -1)
+	{
+		actionMarks[ksn] = false;
+		ksi=0;
+		drawAll();
+		callback();
+		return true;
+	}
+	drawAll();
+	timeMark[ksn] = setTimeout("antikanashii(" + callback + ")", 1000/60);
 	return false;
 }
 
@@ -1141,6 +2063,7 @@ function drawAll() {
 	enableColorBuff(gl, program, faceColor, "vColor");
 	render(enablePositionBuff(gl, program, eyeul, "vPosition"), gl.TRIANGLE_FAN, 0, 62);
 	render(enablePositionBuff(gl, program, eyeur, "vPosition"), gl.TRIANGLE_FAN, 0, 62);
+	//enableColorBuff(gl, program, black, "vColor");
 	render(enablePositionBuff(gl, program, eyedl, "vPosition"), gl.TRIANGLE_FAN, 0, 62);
 	render(enablePositionBuff(gl, program, eyedr, "vPosition"), gl.TRIANGLE_FAN, 0, 62);
 	
