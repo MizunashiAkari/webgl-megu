@@ -124,7 +124,7 @@ function rotate(vec_, theta, x0 = 0, y0 = 0, re = false, s = 0, e = 0, step = 2)
 }
 
 function move(vec_, x, y, re = false) {
-	var vec;
+	var vec = [];
 	if(re)
 		for(var i = 0; i < vec_.length; vec.push(vec_[i++]));
 	else
