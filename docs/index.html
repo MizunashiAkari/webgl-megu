@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>東雲めぐ</title>
+	<!--c-->
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 vPosition;
+        attribute vec4 vColor;
+        varying vec4 fColor;
+		
+        void main()
+        {
+			fColor = vColor;
+			gl_Position = vPosition;
+        }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+        varying vec4 fColor;
+
+        void main()
+        {
+			gl_FragColor = fColor;
+        }
+    </script>
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="../Lib/shape.js"></script>
+    <script type="text/javascript" src="../Lib/animate.js"></script>
+    <script type="text/javascript" src="../Lib/draw.js"></script>
+    <script type="text/javascript" src="megu.js"></script>
+	<style>
+		.all{position:absolute;top:1%;left:20%;width:60%;height:99%;}
+		#gl-canvas{display:block;height:100%;margin:0 auto;}
+		.left{position:absolute;left:0;top:10%;}
+		#actions>input{display:none;}
+		#actions>div{
+			display:inline-block;
+			height:2em;
+			width:8em;
+			font-size:28px;
+			cursor:pointer;
+			border:2px solid #AAA;
+			margin:1px 0;
+			padding:0 5px;
+		}
+		#actions>input[type="radio"]:checked+div{background-color:#fde695;padding:5px 1em 5px 0.5em;font-size:30px;}
+		#actions>div>label{
+			font-family:"Microsoft Yahei";
+			line-height:2em;
+			cursor:pointer;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+	</style>
+	<!--ldftinud-->
+</head>
+<body>
+	<div class="all">
+    <canvas id="gl-canvas" width="1024px" height="1024px">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+	</div>
+	<div class="left">
+		<div id="actions">
+		</div>
+	</div>
+</body>
+</html>
